@@ -1,0 +1,4 @@
+#Tue Jun 23 22:21:16 EDT 2020
+base.0=C\:\\Users\\dhiso\\Documents\\GitHub\\mehdi-gang\\testing\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
