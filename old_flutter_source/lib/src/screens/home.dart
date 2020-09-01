@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:mehdigang/src/constants/Route.dart';
 import 'package:mehdigang/src/screens/testScreen.dart';
+import 'package:mehdigang/src/widgets/roundCard.dart' as widgets;
+
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,6 +15,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // body: ListView(
+      //   children: <Widget>[
+      //     Container(
+      //       height: 280.0,
+      //       child: ListView.builder(
+      //         itemCount: 1,
+      //         itemBuilder: (BuildContext context, int index){
+      //           return widgets._testingText('Hello!');
+      //         }
+      //         )
+      //     )
+      //   ],
+      // ),
       appBar: AppBar(
         leading: IconButton(
             icon: Icon(Icons.menu),
@@ -55,7 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      // body: Column,
     );
   }
 }
