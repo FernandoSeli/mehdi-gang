@@ -6,6 +6,7 @@ import {
 } from "typeorm/browser";
 import { Template } from "./Template";
 
+import "reflect-metadata";
 @Entity("workout")
 export class Workout {
   @PrimaryGeneratedColumn()
