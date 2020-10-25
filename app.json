@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "GymProgression",
-    "slug": "GymProgression",
+    "name": "gym-progression",
+    "slug": "gym-progression",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,16 +13,18 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dhisvn.gymprogression"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "packagerOpts": {
-      "sourceExts": ["js", "jsx", "ts", "tsx"],
-      "transformer": "node_modules/react-native-typescript-transformer/index.js"
+    "android": {
+      "package": "com.dhisvn.gymprogression"
     }
   }
 }
