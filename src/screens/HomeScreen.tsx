@@ -2,7 +2,7 @@ import { TouchableOpacity, View, Text } from 'react-native';
 import React, { Component } from 'react';
 import styles from '../styles/Styles';
 import TestFirebase from '../components/test/TestFirebase';
-import ToWorkout from '../components/test/ToWorkout';
+import NewWorkoutBtn from '../components/buttons/NewWorkoutBtn';
 
 type Props = {
     nav: any,
@@ -14,8 +14,12 @@ class HomeScreen extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-              <TestFirebase/>  
-              <ToWorkout title="To your workout!" nav={this.props.nav}/>
+                {/* <TestFirebase/> */}
+                <NewWorkoutBtn title="Create a new workout!" nav={this.props.nav} />
+                <NewWorkoutBtn title="Create a new workout!" nav={this.props.nav} />
+            {/* for(let i = 0; i < 3; i++ ){
+                console.log("Fucking typescript.")
+            } */}
             </View>
         );
     }

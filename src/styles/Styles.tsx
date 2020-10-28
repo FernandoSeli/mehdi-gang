@@ -8,13 +8,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     button: {
-        padding: 15,
+        margin: 6,
+        padding: 12,
         borderWidth: 1,
         borderColor: '#841584',
     },
     buttonText: {
         color: '#841584',
-        fontSize: 18
+        fontSize: 16
     }
 });
 
