@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import styles from '../styles/Styles';
 //Component Imports
-// import WorkoutForm from '../components/WorkoutForm';
+import WorkoutForm from '../components/WorkoutForm';
 
 type Props = {
     nav: any,
@@ -21,11 +21,12 @@ class WorkoutScreen extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Workout form should be here.</Text>
-                {/* <WorkoutForm type={1}/> */}
+                <Text>Enter your workout details.</Text>
+                <WorkoutForm/>
             </View>
         );
     }
 }
 
 export default WorkoutScreen;
+

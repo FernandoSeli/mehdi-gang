@@ -16,7 +16,6 @@ class HomeScreen extends Component<Props> {
             <View style={styles.container}>
                 {/* <TestFirebase/> */}
                 <NewWorkoutBtn title="Create a new workout!" nav={this.props.nav} />
-                <NewWorkoutBtn title="Create a new workout!" nav={this.props.nav} />
             {/* for(let i = 0; i < 3; i++ ){
                 console.log("Fucking typescript.")
             } */}

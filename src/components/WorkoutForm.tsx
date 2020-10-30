@@ -1,40 +1,70 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import style from '../styles/Styles';
-import { useForm } from 'react-hook-form';
+// import * as React from 'react';
+// import { View, StyleSheet, Text } from 'react-native';
+// import { useForm } from 'react-hook-form';
 
-type Props = {
-    type: number; //1 = New Form, 2 = Update Form
+// export interface AppProps {
+// }
+// export interface AppState {
+// }
+
+// const { register, handleSubmit, errors } = useForm();
+// const onSubmit = data => console.log(data); //Output destination.
+// console.log(errors);
+
+// export default class WorkoutForm extends React.Component<AppProps, AppState> {
+//     constructor(props: AppProps) {
+//         super(props);
+//         this.state = {
+//         };
+//     }
+
+//     render() {
+//         return (
+//             <form onSubmit={handleSubmit(onSubmit)}>
+//                 <input type="text" placeholder="Exercise Name" name="Exercise Name" ref={register({ required: true, min: 1, maxLength: 50 })} />
+//                 <input type="number" placeholder="Repetitions" name="Repetitions" ref={register({ required: true, min: 0 })} />
+//                 <input type="number" placeholder="Sets" name="Sets" ref={register({ required: true, min: 0 })} />
+//                 <input type="number" placeholder="Rest Time" name="Rest Time" ref={register({ min: 0 })} />
+//                 <input type="number" placeholder="Current weight" name="Current weight" ref={register({ required: true, min: 0 })} />
+//                 <input type="number" placeholder="Current 1RM" name="Current 1RM" ref={register({ min: 0 })} />
+//                 <input type="submit" />
+//             </form>
+//         );
+//     }
+// }
+
+// Formik x React Native example
+
+import React from 'react';
+import { Button, TextInput, View, Text } from 'react-native';
+import { Formik } from 'formik';
+
+interface FormValues {
+    email: string;
 }
-//Form Setup
-const { register, handleSubmit, watch, errors } = useForm();
-const onSubmit = data => console.log(data);
 
-class WorkoutForm extends Component<Props> {
-    state = {}
-    render() {
-        if (this.props.type === 1) {
-            return (
-                <form onSubmit={handleSubmit(onSubmit)}>  {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
-                    {/* register your input into the hook by invoking the "register" function */}
-                    <input name="example" defaultValue="test" ref={register} />
-                    {/* include validation with required or other standard HTML validation rules */}
-                    <input name="exampleRequired" ref={register({ required: true })} />
-                    {/* errors will return when field validation fails  */}
-                    {errors.exampleRequired && <span>This field is required</span>}
-                    <input type="submit" />
-                </form>
-            );
-        }
-        else if (this.props.type === 2){
-            return(
-                <View>
-                    <Text>This will be the update workout form/</Text>
-                </View>
-            );
-        }
-
+const WorkoutForm: React.FC<FormValues> = props => { 
+    const initialValues: FormValues={
+        email: '',
     }
+    return (
+        <Formik
+            initialValues={initialValues}
+            onSubmit={values => console.log(values)}
+        >
+            {({ handleChange, handleBlur, handleSubmit, values }) => (
+                <View>
+                    <Text>E-mail</Text>
+                    <TextInput
+                        onChangeText={handleChange('email')}
+                        onBlur={handleBlur('email')}
+                        value={values.email}
+                    />
+                    <Button title="Submit" onPress={handleSubmit} />
+                </View>
+            )}
+        </Formik>
+    );
 }
 
 export default WorkoutForm;
