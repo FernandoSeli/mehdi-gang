@@ -10,19 +10,19 @@ type Props = {
 }
 
 class WorkoutScreen extends Component<Props> {
-    state = { 
+    state = {
         name: 'Your Workout'
-     }
+    }
 
-    constructor(props: Props){
+    constructor(props: Props) {
         super(props);
     }
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Enter your workout details.</Text>
-                <WorkoutForm/>
+            <View style={[styles.formContainer, {paddingTop: 82}]}>
+                {/* <Text style={[styles.h1, { padding: 14 }]}>Enter your workout details.</Text> */}
+                <WorkoutForm />
             </View>
         );
     }

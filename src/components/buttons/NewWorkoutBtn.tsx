@@ -10,7 +10,7 @@ type Props = {
 
 class NewWorkoutBtn extends Component<Props> {
     state = { 
-        temporaryId: "International Chest Day" //This should be a prop later on!
+        temporaryId: "New Workout" //This might change to Workout Name down the road.
      }
     constructor(props: Props){
         super(props)
@@ -29,7 +29,7 @@ class NewWorkoutBtn extends Component<Props> {
         return (
             // <Button title={this.props.title} onPress={this.onPress}/>
             <TouchableHighlight style={style.button} onPress={this.onPress} underlayColor='#FBFBFB'>
-                <Text style={style.buttonText}>Create a new workout day</Text>
+                <Text style={style.buttonText}>{this.props.title}</Text>
             </TouchableHighlight>
         );
     }
