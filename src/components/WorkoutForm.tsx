@@ -103,17 +103,16 @@ const pushFirebase = () => {
 // Name [ Dips    ] Reps [10]+- Sets [3]+- Rest [ 70]+- 
 // <- Submit ->
 // 
-// You might also want to make each row as a component (undecided)
-//
+// Might also want to make each row as a component (maybe)
 //
 // ================== Known bugs and issues: ==================
 // [FIXED] The three underlined props of the form. 
 // [FIXED] Unable to have in number types.
-// Able to paste in string on number-only TextInput.
-// [iOS] Easily fix status bar issues using the StatusBar class from the expo library. 
+//
+// [!] Able to paste in string on number-only TextInput.
 // 
-// 
-// 
+// =============================== To-Do ===============================
+// A new exercise button (creates a new form card to create a new exercise)
 // 
 // 
 //
