@@ -87,6 +87,14 @@ const styles = StyleSheet.create({
         flex: 5,
         borderWidth: 1,
         borderColor: 'black'
+    },
+    card: {
+        borderRadius: 6,
+        borderColor: 'gray',
+        borderWidth: 1,
+        margin: 16,
+        padding: 6,
+        backgroundColor: '#FAFAFA'
     }
 });
 
