@@ -1,29 +1,40 @@
 import React from 'react';
 import { Button, TextInput, View, Text } from 'react-native';
 import { Form, Formik } from 'formik';
+import * as firebase from 'firebase';
 import style from '../styles/Styles';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 interface FormValues {
     name: string;
-    reps: number;
-    sets: number;
+    reps: string; //Reps and sets should be number, if possible.
+    sets: string;
+}
+
+var data = [];
+
+const submit = (formData) => {
+    data.push(formData)
+    console.log("New data pushed: ")
+    console.log(formData);
+    console.log("Current data set:")
+    console.log(data)
 }
 
 const WorkoutForm: React.FC<{}> = props => {
     const initialValues: FormValues = {
         name: 'Bench Press',
-        reps: 0,
-        sets: 0,
+        reps: '0',
+        sets: '0',
     }
     return (
         <Formik
             initialValues={initialValues}
-            onSubmit={values => console.log(values)}
+            onSubmit={values => submit(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View> 
-                    <View style={style.formRow}>
+                    <View style={style.formRow}> 
                         <Text style={style.inputLabel}>Name</Text>
                         <TextInput
                             onChangeText={handleChange('name')}
@@ -37,8 +48,9 @@ const WorkoutForm: React.FC<{}> = props => {
                         <TextInput
                             onChangeText={handleChange('reps')}
                             onBlur={handleBlur('reps')}
-                            value={values.reps} //idk wat the fk is going on
+                            value={values.reps}
                             style={style.inputBox}
+                            keyboardType = 'numeric'
                         />
                     </View>
                     <View style={style.formRow}>
@@ -46,8 +58,9 @@ const WorkoutForm: React.FC<{}> = props => {
                         <TextInput
                             onChangeText={handleChange('sets')}
                             onBlur={handleBlur('sets')}
-                            value={values.sets} //idk wat the fk is going on
+                            value={values.sets}
                             style={style.inputBox}
+                            keyboardType = 'numeric'
                         />
                     </View>
                     <TouchableHighlight //Make this into a component later on.
@@ -57,6 +70,9 @@ const WorkoutForm: React.FC<{}> = props => {
                     >
                         <Text style={[style.buttonText, style.white]}>Submit</Text>
                     </TouchableHighlight>
+                    <TouchableHighlight style={style.buttonSolid} onPress={pushFirebase}>
+                        <Text style={[style.buttonText, style.white]}>Push to Firebase</Text>
+                    </TouchableHighlight>
                 </View>
             )}
         </Formik>
@@ -64,6 +80,15 @@ const WorkoutForm: React.FC<{}> = props => {
 }
 
 export default WorkoutForm;
+
+//Developer Functions
+const pushFirebase = () => {
+    const ref = firebase.database().ref('realTest')
+    console.log("Pushing:")
+    console.log(data)
+    ref.push(data)
+    data = []
+}
 
 // ==================================== Notes: ====================================
 // 
@@ -78,11 +103,14 @@ export default WorkoutForm;
 // Name [ Dips    ] Reps [10]+- Sets [3]+- Rest [ 70]+- 
 // <- Submit ->
 // 
-// 
+// You might also want to make each row as a component (undecided)
+//
+//
 // ================== Known bugs and issues: ==================
-// The three underlined props of the form. 
-// Unable to have in number types.
-// Easily fix status bar issues using the StatusBar class from the expo library.
+// [FIXED] The three underlined props of the form. 
+// [FIXED] Unable to have in number types.
+// Able to paste in string on number-only TextInput.
+// [iOS] Easily fix status bar issues using the StatusBar class from the expo library. 
 // 
 // 
 // 

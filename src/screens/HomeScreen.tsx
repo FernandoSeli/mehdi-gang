@@ -1,4 +1,5 @@
 import { TouchableOpacity, View, Text } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import styles from '../styles/Styles';
 import TestFirebase from '../components/test/TestFirebase';
@@ -19,6 +20,7 @@ class HomeScreen extends Component<Props> {
             {/* for(let i = 0; i < 3; i++ ){
                 console.log("Fucking typescript.")
             } */}
+            <StatusBar style="dark"/>
             </View>
         );
     }

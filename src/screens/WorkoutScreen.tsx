@@ -20,7 +20,7 @@ class WorkoutScreen extends Component<Props> {
 
     render() {
         return (
-            <View style={[styles.formContainer, {paddingTop: 82}]}>
+            <View style={[styles.formContainer, {paddingTop: 14}]}>
                 {/* <Text style={[styles.h1, { padding: 14 }]}>Enter your workout details.</Text> */}
                 <WorkoutForm />
             </View>
