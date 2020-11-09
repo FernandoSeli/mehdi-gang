@@ -34,8 +34,8 @@ const WorkoutForm: React.FC<{}> = props => {
             onSubmit={values => submit(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
-                <View style={style.card}> 
-                    <View style={style.formRow}> 
+                <View style={style.card}>
+                    <View style={style.formRow}>
                         <Text style={style.inputLabel}>Name</Text>
                         <TextInput
                             onChangeText={handleChange('name')}
@@ -51,7 +51,7 @@ const WorkoutForm: React.FC<{}> = props => {
                             onBlur={handleBlur('reps')}
                             value={values.reps}
                             style={style.inputBox}
-                            keyboardType = 'numeric'
+                            keyboardType='numeric'
                         />
                     </View>
                     <View style={style.formRow}>
@@ -61,11 +61,11 @@ const WorkoutForm: React.FC<{}> = props => {
                             onBlur={handleBlur('sets')}
                             value={values.sets}
                             style={style.inputBox}
-                            keyboardType = 'numeric'
+                            keyboardType='numeric'
                         />
                     </View>
-                    <TouchableHighlight //Make this into a component later on.
-                        style={style.buttonSolid}
+                    {/* <TouchableHighlight //Make this into a component later on.
+                        style={[style.buttonSolid, { marginTop: 24 }]}
                         underlayColor={'#922393'}
                         onPress={handleSubmit} //idk wat the fk is going on
                     >
@@ -73,7 +73,7 @@ const WorkoutForm: React.FC<{}> = props => {
                     </TouchableHighlight>
                     <TouchableHighlight style={style.buttonSolid} onPress={pushFirebase}>
                         <Text style={[style.buttonText, style.white]}>Push to Firebase</Text>
-                    </TouchableHighlight>
+                    </TouchableHighlight> */}
                 </View>
             )}
         </Formik>
@@ -112,10 +112,10 @@ const pushFirebase = () => {
 // [FIXED] Unable to have in number types.
 //
 // [!] Able to paste in string on number-only TextInput.
+// 'onPress' error @Line70.
 // 
 // =============================== To-Do ===============================
 // A new exercise button (creates a new form card to create a new exercise)
 // 
 // 
-//
 //

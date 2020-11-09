@@ -1,5 +1,4 @@
 import { StyleSheet, Platform } from 'react-native';
-import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-appearance';
 
 const themeColor = '#841584'
 const themeColorLight = '#881989'
@@ -20,20 +19,14 @@ const styles = StyleSheet.create({
     //Containers
     container: {
         flex: 1,
-        backgroundColor: '#F8F8F8',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
     formContainer: {
         justifyContent: 'flex-start',
-        backgroundColor: '#F8F8F8',
+        backgroundColor: '#F1F1F1',
         flex: 1,
-    },
-    darkContainer: {
-        backgroundColor: '#0A0A0A',
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     //Buttons
     button: {
@@ -44,8 +37,7 @@ const styles = StyleSheet.create({
         height: 36,
         borderWidth: 1,
         borderColor: themeColor,
-        borderRadius: 8,
-        backgroundColor: '#fff'
+        borderRadius: 4
     },
     buttonText: {
         color: themeColor,
@@ -100,9 +92,8 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         borderColor: '#d2d2d2',
         borderWidth: 1,
-        margin: 8,
-        paddingHorizontal: 8,
-        paddingVertical: 12,
+        margin: 16,
+        padding: 6,
         backgroundColor: 'white'
     }
 });

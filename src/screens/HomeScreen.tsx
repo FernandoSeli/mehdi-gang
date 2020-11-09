@@ -1,5 +1,6 @@
 import { TouchableOpacity, View, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-appearance';
 import React, { Component } from 'react';
 import styles from '../styles/Styles';
 import TestFirebase from '../components/test/TestFirebase';
@@ -11,19 +12,21 @@ type Props = {
 
 class HomeScreen extends Component<Props> {
     state = {}
-
     render() {
         return (
             <View style={styles.container}>
                 {/* <TestFirebase/> */}
                 <NewWorkoutBtn title="Create a new workout day" nav={this.props.nav} />
-            {/* for(let i = 0; i < 3; i++ ){
+                {/* for(let i = 0; i < 3; i++ ){
                 console.log("Fucking typescript.")
             } */}
-            <StatusBar style="dark"/>
+                <StatusBar style="dark" />
             </View>
         );
     }
 }
 
 export default HomeScreen;
+
+// To-do:
+// Dynamic dark/light mode. Idk how to use hooks.
