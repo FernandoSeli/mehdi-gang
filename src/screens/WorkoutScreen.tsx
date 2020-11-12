@@ -4,6 +4,7 @@ import { View, Text, TouchableWithoutFeedback, Keyboard, TouchableOpacity, FlatL
 import styles from '../styles/Styles';
 //Component Imports
 import WorkoutForm from '../components/WorkoutForm';
+import { clockRunning } from 'react-native-reanimated';
 
 type Props = {
     nav: any,
@@ -21,11 +22,12 @@ class WorkoutScreen extends Component<Props> {
         super(props);
         this.state = {
             name: 'Your Workout',
-            exerciseArray: []
+            exerciseArray: [],
         }
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 1; i++) {
             this.state.exerciseArray.push(
                 {
+                    id: '',
                     name: "Pendlay Rows",
                     reps: '4',
                     sets: '5',
@@ -40,18 +42,34 @@ class WorkoutScreen extends Component<Props> {
     }
 
     onEditForm = () => {
-        
+
     }
 
     onPressSubmit = () => {
+        console.log("Current data list:");
         console.log(this.state.exerciseArray)
     }
 
-    render() {
+    renderItem = ({ item }) => (
+        <WorkoutForm itemData={item} />
+    );
 
-        const renderItem = () => (
-            <WorkoutForm />
-        );
+    //Developer/Test Functions
+    onPlusButton = () => {
+        this.setState(
+            state => {
+                const list = this.state.exerciseArray.push({
+                    name: 'Bicep Curls',
+                    reps: '12',
+                    sets: '3',
+                })
+                return list
+            }
+        )
+        console.log("Added object.")
+    }
+
+    render() {
 
         return (
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -62,14 +80,15 @@ class WorkoutScreen extends Component<Props> {
 
                     <FlatList
                         data={this.state.exerciseArray}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
+                        renderItem={this.renderItem}
+                        keyExtractor={item => { return item.id }}
+                        extraData={this.state.exerciseArray}
                     />
 
                     <TouchableOpacity style={[styles.buttonSolid, { marginTop: 12 }]} onPress={this.onPressSubmit}>
                         <Text style={[styles.buttonText, styles.white]}>Submit</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.buttonSolid]} onPress={this.onPressSubmit}>
+                    <TouchableOpacity style={[styles.buttonSolid]} onPress={this.onPlusButton}>
                         <Text style={[styles.buttonText, styles.white]}>+</Text>
                     </TouchableOpacity>
                 </View>
@@ -81,8 +100,8 @@ class WorkoutScreen extends Component<Props> {
 export default WorkoutScreen;
 
 // ------------------ To-Do ------------------
-// Component/screen communication on each exercise's form/
-// Dynamic [+] button to add new exercises.
+// Yellow warning: keys and shit
+// 
 // 
 // 
 // 

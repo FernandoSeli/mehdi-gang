@@ -9,6 +9,7 @@ interface FormValues {
     name: string;
     reps: string; //Reps and sets should be number, if possible.
     sets: string;
+    itemData: any;
 }
 
 var data = [];
@@ -22,15 +23,25 @@ const submit = (formData) => {
     Alert.alert('Data pushed to array!')
 }
 
-const WorkoutForm: React.FC<{}> = props => {
+// const WorkoutForm: React.FC<{}> = props => {
+const WorkoutForm = props => {
+
+    let itemData = props.itemData
+
+    if (props.itemData) {
+        console.log("Item data is present: ")
+        console.log(props.itemData)
+    }
+
     const initialValues: FormValues = {
         name: 'Bench Press',
         reps: '0',
         sets: '0',
+        itemData: itemData
     }
     return (
         <Formik
-            initialValues={initialValues}
+            initialValues={initialValues.itemData}
             onSubmit={values => submit(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
