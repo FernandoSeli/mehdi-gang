@@ -1,6 +1,6 @@
 import { useLinkProps } from '@react-navigation/native';
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback, Keyboard, TouchableOpacity, FlatList, ScrollView } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Keyboard, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 import styles from '../styles/Styles';
 //Component Imports
 import WorkoutForm from '../components/WorkoutForm';
@@ -11,6 +11,7 @@ type Props = {
 }
 
 interface formObject {
+    key: number,
     name: string,
     reps: string,
     sets: string,
@@ -27,10 +28,10 @@ class WorkoutScreen extends Component<Props> {
         for (var i = 0; i < 1; i++) {
             this.state.exerciseArray.push(
                 {
-                    id: '',
-                    name: "Pendlay Rows",
-                    reps: '4',
-                    sets: '5',
+                    key: i,
+                    name: "Bench Press",
+                    reps: '8',
+                    sets: '3',
                 }
             )
         }
@@ -51,17 +52,24 @@ class WorkoutScreen extends Component<Props> {
     }
 
     renderItem = ({ item }) => (
-        <WorkoutForm itemData={item} />
+        <WorkoutForm itemData={item} onChange={this.onChangeItemData} />
     );
+
+    onChangeItemData = (newData: any) => {
+        this.setState(
+            state => this.state.exerciseArray[newData.key] = newData
+        )
+    }
 
     //Developer/Test Functions
     onPlusButton = () => {
         this.setState(
             state => {
                 const list = this.state.exerciseArray.push({
-                    name: 'Bicep Curls',
-                    reps: '12',
-                    sets: '3',
+                    key: this.state.exerciseArray.length,
+                    name: '',
+                    reps: '',
+                    sets: '',
                 })
                 return list
             }
@@ -73,15 +81,15 @@ class WorkoutScreen extends Component<Props> {
 
         return (
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-                <View style={[styles.formContainer, { paddingTop: 14 }]}>
-                    <Text style={[styles.h1, { padding: 14 }]}>Enter your workout details.</Text>
+                <View style={[styles.formContainer, { paddingTop: 0 }]}>
+                    {/* <Text style={[styles.h1, { padding: 14 }]}>Enter your workout details.</Text> */}
 
                     {/* <WorkoutForm /> */}
 
                     <FlatList
                         data={this.state.exerciseArray}
                         renderItem={this.renderItem}
-                        keyExtractor={item => { return item.id }}
+                        keyExtractor={item => { return item.key.toString() }}
                         extraData={this.state.exerciseArray}
                     />
 
@@ -89,7 +97,7 @@ class WorkoutScreen extends Component<Props> {
                         <Text style={[styles.buttonText, styles.white]}>Submit</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.buttonSolid]} onPress={this.onPlusButton}>
-                        <Text style={[styles.buttonText, styles.white]}>+</Text>
+                        <Text style={[styles.buttonText, styles.white]}>Add a new exercise</Text>
                     </TouchableOpacity>
                 </View>
             </TouchableWithoutFeedback>

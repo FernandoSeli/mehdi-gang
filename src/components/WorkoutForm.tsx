@@ -1,47 +1,47 @@
 import React from 'react';
 import { Button, TextInput, View, Text, Alert } from 'react-native';
-import { Form, Formik } from 'formik';
+import { Form, Formik, useFormikContext } from 'formik';
 import * as firebase from 'firebase';
 import style from '../styles/Styles';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 interface FormValues {
+    key: number;
     name: string;
     reps: string; //Reps and sets should be number, if possible.
     sets: string;
-    itemData: any;
 }
 
 var data = [];
 
-const submit = (formData) => {
-    data.push(formData)
-    console.log("New data pushed: ")
-    console.log(formData);
-    console.log("Current data set:")
-    console.log(data)
-    Alert.alert('Data pushed to array!')
-}
+
 
 // const WorkoutForm: React.FC<{}> = props => {
-const WorkoutForm = props => {
+const WorkoutForm = (props: any) => {
 
     let itemData = props.itemData
+    let onChange = props.onChange
+
+    const submit = (formData: object) => {
+        // console.log("Updated row data.");
+        onChange(formData);
+    }
 
     if (props.itemData) {
-        console.log("Item data is present: ")
-        console.log(props.itemData)
+        // Data check
+        // console.log("Item data is present: ")
+        // console.log(props.itemData)
     }
 
     const initialValues: FormValues = {
-        name: 'Bench Press',
-        reps: '0',
-        sets: '0',
-        itemData: itemData
+        key: itemData.key,
+        name: itemData.name,
+        reps: itemData.reps,
+        sets: itemData.sets,
     }
     return (
         <Formik
-            initialValues={initialValues.itemData}
+            initialValues={initialValues}
             onSubmit={values => submit(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -75,14 +75,14 @@ const WorkoutForm = props => {
                             keyboardType='numeric'
                         />
                     </View>
-                    {/* <TouchableHighlight //Make this into a component later on.
-                        style={[style.buttonSolid, { marginTop: 24 }]}
+                    <TouchableHighlight //Make this into a component later on.
+                        style={[style.buttonSolid, { marginTop: 8 }]}
                         underlayColor={'#922393'}
                         onPress={handleSubmit} //idk wat the fk is going on
                     >
-                        <Text style={[style.buttonText, style.white]}>Submit</Text>
+                        <Text style={[style.buttonText, style.white]}>Confirm</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={style.buttonSolid} onPress={pushFirebase}>
+                    {/* <TouchableHighlight style={style.buttonSolid} onPress={pushFirebase}>
                         <Text style={[style.buttonText, style.white]}>Push to Firebase</Text>
                     </TouchableHighlight> */}
                 </View>
@@ -123,8 +123,8 @@ const pushFirebase = () => {
 // [FIXED] Unable to have in number types.
 //
 // [!] Able to paste in string on number-only TextInput.
-// 'onPress' error @Line70.
-// 
+// reps and sets are string instead of number
+//
 // =============================== To-Do ===============================
 // A new exercise button (creates a new form card to create a new exercise)
 // 
