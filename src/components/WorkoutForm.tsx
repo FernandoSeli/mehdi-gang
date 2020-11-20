@@ -27,6 +27,11 @@ const WorkoutForm = (props: any) => {
         onChange(formData);
     }
 
+    const validate = (formData: object) => {
+        //Do everytime onChangeText
+        submit(formData)
+    }
+
     if (props.itemData) {
         // Data check
         // console.log("Item data is present: ")
@@ -39,10 +44,13 @@ const WorkoutForm = (props: any) => {
         reps: itemData.reps,
         sets: itemData.sets,
     }
+
+
     return (
         <Formik
             initialValues={initialValues}
             onSubmit={values => submit(values)}
+            validate={values => validate(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View style={style.card}>
@@ -52,7 +60,7 @@ const WorkoutForm = (props: any) => {
                             onChangeText={handleChange('name')}
                             onBlur={handleBlur('name')}
                             value={values.name}
-                            style={style.inputBox}
+                            style={[style.inputBox, {fontWeight: 'bold'}]}
                         />
                     </View>
                     <View style={style.formRow}>
@@ -75,13 +83,13 @@ const WorkoutForm = (props: any) => {
                             keyboardType='numeric'
                         />
                     </View>
-                    <TouchableHighlight //Make this into a component later on.
+                    {/* <TouchableHighlight //Make this into a component later on.
                         style={[style.buttonSolid, { marginTop: 8 }]}
                         underlayColor={'#922393'}
                         onPress={handleSubmit} //idk wat the fk is going on
                     >
                         <Text style={[style.buttonText, style.white]}>Confirm</Text>
-                    </TouchableHighlight>
+                    </TouchableHighlight> */}
                     {/* <TouchableHighlight style={style.buttonSolid} onPress={pushFirebase}>
                         <Text style={[style.buttonText, style.white]}>Push to Firebase</Text>
                     </TouchableHighlight> */}
@@ -126,7 +134,7 @@ const pushFirebase = () => {
 // reps and sets are string instead of number
 //
 // =============================== To-Do ===============================
-// A new exercise button (creates a new form card to create a new exercise)
+// Create a new Exercise component that uses the states from this screen instead.
 // 
 // 
 //
