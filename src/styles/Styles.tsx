@@ -3,6 +3,7 @@ import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-app
 
 const themeColor = '#841584'
 const themeColorLight = '#881989'
+const themeContrastSuperLight = '#fafff2'
 
 const styles = StyleSheet.create({
     //Base
@@ -34,6 +35,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    defaultLight: {
+        backgroundColor: '#F8F8F8',
+        justifyContent: 'center',
+        flex: 1,
     },
     //Buttons
     button: {
@@ -71,6 +77,25 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
     },
+    title: {
+        fontSize: 30,
+        fontWeight: '300',
+        color: themeColor,
+        marginVertical: 6,
+    },
+    title2: {
+        fontSize: 18,
+        color: themeColor,
+        marginVertical: 6,
+    },
+    light: {
+        fontSize: 14,
+        color: 'gray',
+    },
+    debug: {
+        fontSize: 12,
+        color: 'red'
+    },
     //Inputs and Form Components
     formRow: {
         flexDirection: 'row',
@@ -101,9 +126,21 @@ const styles = StyleSheet.create({
         borderColor: '#d2d2d2',
         borderWidth: 1,
         margin: 8,
-        paddingHorizontal: 8,
+        paddingHorizontal: 12,
         paddingVertical: 12,
         backgroundColor: 'white'
+    },
+    //UI Elements
+    homeCard: {
+        borderWidth: 0,
+        borderRadius: 6,
+        padding: 18,
+        backgroundColor: 'white',
+        elevation: 2,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
     }
 });
 

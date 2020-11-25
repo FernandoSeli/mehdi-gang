@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
 import TestPage from '../screens/TestPage';
+import ExploreScreen from '../screens/ExploreScreen';
 //Visual Imports
 import { AntDesign, Entypo } from '@expo/vector-icons';
 //Params type definition
@@ -17,23 +18,39 @@ type StackParams = {
 };
 type TabParams = {
 }
-//Navigation
+
+//Navigation Definitions
 const Stack = createStackNavigator<StackParams>();
 const Tab = createBottomTabNavigator();
+
 //Screen Definitions
 function Home({ navigation }) { return (<HomeScreen nav={navigation} />) };
 function Workout({ navigation }) { return (<WorkoutScreen nav={navigation} />) };
+function Explore({ navigation }) { return (<ExploreScreen nav={navigation} />) };
+
 function Blank({ navigation }) { return (<TestPage nav={navigation} />) };
+
 //Constants
 const themeColor = '#841584';
-//Stack in Tabs Definitions
+
+//Tabs Definitions
 function HomeTab() {
     return (
         <Stack.Navigator initialRouteName="Home">
             <Stack.Screen
                 name="Home"
                 component={Home}
-                options={{ title: 'Gym Progression App', headerTitleAlign: 'center' }}
+                options={{
+                    title: 'AppTitle',
+                    headerTitleAlign: 'center',
+                    headerTitleStyle: {
+                        fontSize: 28,
+                        fontWeight: 'bold',
+                    },
+                    headerStyle: {
+                        height: 90,
+                    }
+                }}
             />
             <Stack.Screen
                 name="Workout"
@@ -47,6 +64,13 @@ function ProfileTab() {
     return (
         <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={Blank} options={{ title: 'What are you doing here?' }} />
+        </Stack.Navigator>
+    );
+}
+function ExploreTab() {
+    return (
+        <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" component={Explore} options={{ title: "Explore workouts", headerTitleAlign: 'center' }} />
         </Stack.Navigator>
     );
 }
@@ -75,14 +99,18 @@ class Navigation extends Component {
                         tabBarIcon: ({ focused, color, size }) => {
                             size = 28;
                             let iconName;
-                            if (route.name === 'HomeTab') {
-                                iconName = 'bowl'
+                            if (route.name === 'Dashboard') {
+                                iconName = 'pencil'
                                 color = focused
                                     ? themeColor
                                     : 'black'
                             }
-                            else if(route.name==='ProfileTab'){
-                                iconName = 'bug'
+                            else if (route.name === 'Explore') {
+                                iconName = 'direction'
+                                color = focused ? themeColor : 'black'
+                            }
+                            else if (route.name === 'ProfileTab') {
+                                iconName = 'user'
                                 color = focused
                                     ? themeColor
                                     : 'black'
@@ -95,8 +123,12 @@ class Navigation extends Component {
                     }}
                 >
                     <Tab.Screen
-                        name="HomeTab"
+                        name="Dashboard"
                         component={HomeTab}
+                    />
+                    <Tab.Screen
+                        name="Explore"
+                        component={ExploreTab}
                     />
                     <Tab.Screen
                         name="ProfileTab"

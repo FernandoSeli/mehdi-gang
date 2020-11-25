@@ -1,0 +1,36 @@
+======================== Class Drawing Board ========================
+
+Exercise
+- Key: string //should be number but error
+- Name: string
+- Reps: string
+- Sets: string
+- Rest: number
+- Order: number
+- Track[]: TrackData
+- Link?: string
+
+Workout
+- Key: string
+- Name: string
+- Day: number [1..7]
+- Exercises[]: Exercise
+
+Routine
+- uid?: For online sharing
+- Key: string
+- Name: string
+- Workouts[]: Workout
+
+User
+- selectedRoutine: string
+- ..Age, Weight, Sex, etc.
+
+
+
+
+======================== Feature Dump ========================
+- Explore page to clone other people's Routine
+- Link to proper form on each Exercise
+- Alarm/Notification before workouts and/or if the user skips a workout (Check-in system)
+- Sortable List on WorkoutScreen

@@ -109,7 +109,7 @@ export default WorkoutScreen;
 
 // ------------------ To-Do ------------------
 // Yellow warning: keys and shit
-// 
+// Re-order list by drag-and-dropping. Use npm i react-native-sortable-list --save (available on GitHub)
 // 
 // 
 // 

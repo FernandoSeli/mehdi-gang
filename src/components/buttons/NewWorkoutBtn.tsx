@@ -28,7 +28,7 @@ class NewWorkoutBtn extends Component<Props> {
     render() {
         return (
             // <Button title={this.props.title} onPress={this.onPress}/>
-            <TouchableHighlight style={style.button} onPress={this.onPress} underlayColor='#FBFBFB'>
+            <TouchableHighlight style={[style.button, this.props.style]} onPress={this.onPress} underlayColor='#FBFBFB'>
                 <Text style={style.buttonText}>{this.props.title}</Text>
             </TouchableHighlight>
         );

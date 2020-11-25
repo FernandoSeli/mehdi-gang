@@ -28,8 +28,14 @@ const WorkoutForm = (props: any) => {
     }
 
     const validate = (formData: object) => {
-        //Do everytime onChangeText
-        submit(formData)
+        // Do everytime onChangeText
+        let inputTimer:any
+        var duration = 150;
+        clearTimeout(inputTimer)
+        inputTimer = setTimeout(() => {
+            submit(formData)
+        }, duration);
+        // submit(formData);
     }
 
     if (props.itemData) {
@@ -134,7 +140,7 @@ const pushFirebase = () => {
 // reps and sets are string instead of number
 //
 // =============================== To-Do ===============================
-// Create a new Exercise component that uses the states from this screen instead.
+// Timer
 // 
 // 
 //
