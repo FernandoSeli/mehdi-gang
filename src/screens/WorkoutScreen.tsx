@@ -1,10 +1,11 @@
 import { useLinkProps } from '@react-navigation/native';
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback, Keyboard, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
-import styles from '../styles/Styles';
+import { View, Text, Platform, TouchableOpacity, FlatList, KeyboardAvoidingView } from 'react-native';
+import styles, { darkBackground } from '../styles/Styles';
 //Component Imports
 import WorkoutForm from '../components/WorkoutForm';
 import { clockRunning } from 'react-native-reanimated';
+import Navigation from '../navigation/Navigation';
 
 type Props = {
     nav: any,
@@ -16,6 +17,7 @@ interface formObject {
     reps: string,
     sets: string,
 }
+
 
 class WorkoutScreen extends Component<Props> {
 
@@ -29,9 +31,9 @@ class WorkoutScreen extends Component<Props> {
             this.state.exerciseArray.push(
                 {
                     key: i,
-                    name: "Bench Press",
-                    reps: '8',
-                    sets: '3',
+                    name: "",
+                    reps: '',
+                    sets: '',
                 }
             )
         }
@@ -80,7 +82,7 @@ class WorkoutScreen extends Component<Props> {
     render() {
 
         return (
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <KeyboardAvoidingView style={{ flex: 1, backgroundColor: darkBackground }} behavior={Platform.OS == "ios" ? "padding" : "height"} keyboardVerticalOffset={110}>
                 <View style={[styles.formContainer, { paddingTop: 0 }]}>
                     {/* <Text style={[styles.h1, { padding: 14 }]}>Enter your workout details.</Text> */}
 
@@ -100,17 +102,31 @@ class WorkoutScreen extends Component<Props> {
                         <Text style={[styles.buttonText, styles.white]}>Add a new exercise</Text>
                     </TouchableOpacity>
                 </View>
-            </TouchableWithoutFeedback>
+            </KeyboardAvoidingView>
         );
     }
 }
+
+function Workout({ navigation }) {
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <TouchableOpacity onPress={() => alert("Add new!")}>
+                    <Text style={{ fontSize: 28, textAlign: 'center', marginRight: 20, color: 'blue' }}>+</Text>
+                </TouchableOpacity>
+            ),
+
+        });
+    }, [navigation])
+    return (<WorkoutScreen nav={navigation} />)
+};
 
 export default WorkoutScreen;
 
 // ------------------ To-Do ------------------
 // Yellow warning: keys and shit
 // Re-order list by drag-and-dropping. Use npm i react-native-sortable-list --save (available on GitHub)
-// 
+// Plus button on the header.
 // 
 // 
 // 

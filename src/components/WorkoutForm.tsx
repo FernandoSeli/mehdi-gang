@@ -66,7 +66,9 @@ const WorkoutForm = (props: any) => {
                             onChangeText={handleChange('name')}
                             onBlur={handleBlur('name')}
                             value={values.name}
-                            style={[style.inputBox, {fontWeight: 'bold'}]}
+                            style={style.inputBox}
+                            placeholder="Workout Name"
+                            keyboardAppearance="dark"
                         />
                     </View>
                     <View style={style.formRow}>
@@ -77,6 +79,8 @@ const WorkoutForm = (props: any) => {
                             value={values.reps}
                             style={style.inputBox}
                             keyboardType='numeric'
+                            placeholder='Repetitions'
+                            keyboardAppearance="dark"
                         />
                     </View>
                     <View style={style.formRow}>
@@ -87,6 +91,8 @@ const WorkoutForm = (props: any) => {
                             value={values.sets}
                             style={style.inputBox}
                             keyboardType='numeric'
+                            placeholder='Sets'
+                            keyboardAppearance="dark"
                         />
                     </View>
                     {/* <TouchableHighlight //Make this into a component later on.

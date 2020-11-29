@@ -1,5 +1,4 @@
 //Library Imports
-import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 //Screen Imports
@@ -10,6 +9,7 @@ import Navigation from './src/navigation/Navigation';
 //Import Firebase
 import * as firebase from 'firebase';
 import FirebaseInitialize from './src/database/FirebaseInitialize';
+import { render } from 'react-dom';
 //Database Initialization
 if (!firebase.apps.length) {
   firebase.initializeApp(FirebaseInitialize);
@@ -17,7 +17,7 @@ if (!firebase.apps.length) {
 
 export default function App() {
   return (
-    <Navigation/>
+      <Navigation />
   );
 }
 

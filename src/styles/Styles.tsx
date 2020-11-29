@@ -1,12 +1,16 @@
 import { StyleSheet, Platform } from 'react-native';
 import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-appearance';
 
-const themeColor = '#841584'
-const themeColorLight = '#881989'
+export const themeColor = '#5caff2'
+const themeColorLight = '#a3d6ff'
 const themeContrastSuperLight = '#fafff2'
+export const darkBackground = "#262626"
+const lightBackground = '#3b3b3b'
+export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
 
 const styles = StyleSheet.create({
     //Base
+
     colored: {
         color: themeColor
     },
@@ -21,25 +25,26 @@ const styles = StyleSheet.create({
     //Containers
     container: {
         flex: 1,
-        backgroundColor: '#F8F8F8',
+        backgroundColor: darkBackground,
         alignItems: 'center',
         justifyContent: 'center',
     },
     formContainer: {
         justifyContent: 'flex-start',
-        backgroundColor: '#F8F8F8',
+        backgroundColor: 'black',
         flex: 1,
     },
     darkContainer: {
-        backgroundColor: '#0A0A0A',
+        backgroundColor: 'black',
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
     defaultLight: {
-        backgroundColor: '#F8F8F8',
+        backgroundColor: 'black',
         justifyContent: 'center',
         flex: 1,
+        borderColor: 'transparent'
     },
     //Buttons
     button: {
@@ -78,13 +83,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     title: {
-        fontSize: 30,
-        fontWeight: '300',
-        color: themeColor,
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: themeColorLight,
         marginVertical: 6,
     },
     title2: {
-        fontSize: 18,
+        fontSize: 16,
         color: themeColor,
         marginVertical: 6,
     },
@@ -103,10 +108,10 @@ const styles = StyleSheet.create({
         marginVertical: 8
     },
     inputLabel: {
-        marginRight: 12,
+        marginRight: 26,
         fontSize: 16,
         // fontWeight: 'bold',
-        color: themeColor,
+        color: themeColorLight,
         textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
         flex: 1,
         justifyContent: 'center',
@@ -119,28 +124,31 @@ const styles = StyleSheet.create({
         height: 36,
         flex: 5,
         borderWidth: 1,
-        borderColor: '#d8d8d8'
+        borderColor: 'transparent',
+        borderBottomColor: '#555555',
+        color: 'white',
     },
     card: {
         borderRadius: 6,
         borderColor: '#d2d2d2',
-        borderWidth: 1,
-        margin: 8,
+        borderWidth: 0,
+        marginTop: 14,
+        marginHorizontal: 10,
         paddingHorizontal: 12,
         paddingVertical: 12,
-        backgroundColor: 'white'
+        backgroundColor: lightBackground
     },
     //UI Elements
     homeCard: {
         borderWidth: 0,
         borderRadius: 6,
         padding: 18,
-        backgroundColor: 'white',
         elevation: 2,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 2,
+        backgroundColor: lightBackground
     }
 });
 

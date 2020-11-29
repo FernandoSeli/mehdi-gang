@@ -28,3 +28,7 @@ export default class BlankPage extends React.Component<BlankProps, BlankState> {
     );
   }
 }
+
+
+
+function Blank({ navigation }) { return (<BlankPage nav={navigation} />) };
