@@ -122,13 +122,14 @@ class Navigation extends Component {
                                             : 'gray'
                                     }
                                     return <Entypo name={iconName} size={size} color={color} />
-                                }
+                                },
                             })}
                             tabBarOptions={{
                                 inactiveBackgroundColor: 'black',
                                 activeBackgroundColor: 'black',
                                 activeTintColor: 'white',
-                                style: { borderTopWidth: 0 }
+                                style: { borderTopWidth: 0, padding: 4, backgroundColor: 'black' },
+                                
                             }}
                         >
                             <Tab.Screen

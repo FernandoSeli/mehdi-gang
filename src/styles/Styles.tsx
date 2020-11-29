@@ -5,7 +5,7 @@ export const themeColor = '#5caff2'
 const themeColorLight = '#a3d6ff'
 const themeContrastSuperLight = '#fafff2'
 export const darkBackground = "#262626"
-const lightBackground = '#3b3b3b'
+const lightBackground = '#1d1d1d'
 export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
 
 const styles = StyleSheet.create({
@@ -70,6 +70,12 @@ const styles = StyleSheet.create({
         backgroundColor: themeColor,
         borderRadius: 4
     },
+    linkedText: {
+        textAlign: 'center',
+        color: 'white',
+        margin: 8,
+        // textDecorationLine: 'underline'
+    },
     //Text
     text: {
         fontSize: 16,
@@ -83,19 +89,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     title: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
-        color: themeColorLight,
+        color: 'white',
         marginVertical: 6,
     },
     title2: {
         fontSize: 16,
-        color: themeColor,
+        color: 'white',
         marginVertical: 6,
     },
     light: {
         fontSize: 14,
-        color: 'gray',
+        color: '#b3b3b3',
     },
     debug: {
         fontSize: 12,
