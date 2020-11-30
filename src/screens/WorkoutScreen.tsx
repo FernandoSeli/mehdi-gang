@@ -44,17 +44,15 @@ class WorkoutScreen extends Component<Props> {
         name: '',
     }
 
-    onEditForm = () => {
-
-    }
-
     onPressSubmit = () => {
+        const list = this.state.exerciseArray
         console.log("Current data list:");
-        console.log(this.state.exerciseArray)
+        console.log(list);
+        
     }
 
     renderItem = ({ item }) => (
-        <WorkoutForm itemData={item} onChange={this.onChangeItemData} />
+        <WorkoutForm itemData={item} onChange={this.onChangeItemData}/>
     );
 
     onChangeItemData = (newData: any) => {
@@ -93,13 +91,14 @@ class WorkoutScreen extends Component<Props> {
                         renderItem={this.renderItem}
                         keyExtractor={item => { return item.key.toString() }}
                         extraData={this.state.exerciseArray}
+                        style={{width: '100%'}}
                     />
 
-                    <TouchableOpacity style={[styles.buttonSolid, { marginTop: 12 }]} onPress={this.onPressSubmit}>
-                        <Text style={[styles.buttonText, styles.white]}>Submit</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.buttonSolid]} onPress={this.onPlusButton}>
+                    <TouchableOpacity style={[styles.button]} onPress={this.onPlusButton}>
                         <Text style={[styles.buttonText, styles.white]}>Add a new exercise</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.button]} onPress={this.onPressSubmit}>
+                        <Text style={[styles.buttonText, styles.white]}>Submit</Text>
                     </TouchableOpacity>
                 </View>
             </KeyboardAvoidingView>
@@ -112,7 +111,7 @@ function Workout({ navigation }) {
         navigation.setOptions({
             headerRight: () => (
                 <TouchableOpacity onPress={() => alert("Add new!")}>
-                    <Text style={{ fontSize: 28, textAlign: 'center', marginRight: 20, color: 'blue' }}>+</Text>
+                    <Text style={{ fontSize: 28, textAlign: 'center', marginRight: 20, color: 'blue' }}>ASDASD</Text>
                 </TouchableOpacity>
             ),
 
@@ -128,8 +127,8 @@ export default WorkoutScreen;
 // Re-order list by drag-and-dropping. Use npm i react-native-sortable-list --save (available on GitHub)
 // Plus button on the header.
 // 
-// 
-// 
+// URGENT!! Move everything out of the WorkoutScreen class and into the Workout() function.
+// Remember: every data is held in the class and not the function/form. Be sure to properly import all data and methods properly.
 // 
 // 
 // 

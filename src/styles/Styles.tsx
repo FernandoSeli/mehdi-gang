@@ -5,7 +5,8 @@ export const themeColor = '#5caff2'
 const themeColorLight = '#a3d6ff'
 const themeContrastSuperLight = '#fafff2'
 export const darkBackground = "#262626"
-const lightBackground = '#1d1d1d'
+export const gray = '#454545'
+const lightBackground = '#111114'
 export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
 
 const styles = StyleSheet.create({
@@ -33,6 +34,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         backgroundColor: 'black',
         flex: 1,
+        alignItems: 'center',
     },
     darkContainer: {
         backgroundColor: 'black',
@@ -52,15 +54,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         margin: 6,
-        height: 36,
         borderWidth: 1,
-        borderColor: themeColor,
-        borderRadius: 8,
-        backgroundColor: '#fff'
+        borderColor: 'white',
+        borderRadius: 0,
+        backgroundColor: 'transparent',
+        width: 180,
+        height: 40,
     },
     buttonText: {
         color: themeColor,
-        fontSize: 16
+        fontSize: 14
     },
     buttonSolid: {
         alignItems: 'center',
@@ -117,7 +120,7 @@ const styles = StyleSheet.create({
         marginRight: 26,
         fontSize: 16,
         // fontWeight: 'bold',
-        color: themeColorLight,
+        color: 'white',
         textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
         flex: 1,
         justifyContent: 'center',
@@ -131,12 +134,12 @@ const styles = StyleSheet.create({
         flex: 5,
         borderWidth: 1,
         borderColor: 'transparent',
-        borderBottomColor: '#555555',
+        // borderBottomColor: gray,
         color: 'white',
     },
     card: {
         borderRadius: 6,
-        borderColor: '#d2d2d2',
+        // borderColor: '#d2d2d2',
         borderWidth: 0,
         marginTop: 14,
         marginHorizontal: 10,

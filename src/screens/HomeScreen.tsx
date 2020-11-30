@@ -1,4 +1,4 @@
-import { TouchableOpacity, View, Text, FlatList, StatusBar, ScrollView } from 'react-native';
+import { TouchableOpacity, View, Text, FlatList, StatusBar, ScrollView, Dimensions } from 'react-native';
 import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-appearance';
 import React, { Component, useState } from 'react';
 //Component Imports
@@ -8,20 +8,157 @@ import ExerciseCard from '../components/ExerciseCard';
 import TodaysWorkout from '../components/TodaysWorkout'
 //Stlye Imports
 import styles, { themeColor } from '../styles/Styles';
-import darkBackground from '../styles/Styles'
-import { withSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient'
 
 type Props = {
     nav: any,
 }
 
 const list = [ //This will later be your Routine data from the Database.
-    { key: 0, day: 1, name: "Power Push Day" },
-    { key: 1, day: 2, name: "Power Pull Day" },
-    { key: 2, day: 3, name: "Power Leg Day" },
-    { key: 3, day: 4, name: "Hypertrophy Push Day" },
-    { key: 4, day: 5, name: "Hypertrophy Pull Day" },
-    { key: 5, day: 6, name: "Hypertrophy Legs and Core Day" },
+    {
+        key: 0, day: 1, name: "Power Push Day",
+        exercises: [{
+            "key": 0,
+            "name": "Bench Press",
+            "reps": "4",
+            "sets": "5",
+        }, {
+            "key": 1,
+            "name": "Overhead Press",
+            "reps": "5",
+            "sets": "5",
+        }, {
+            "key": 2,
+            "name": "Tricep Dips",
+            "reps": "10",
+            "sets": "4",
+        }, {
+            "key": 3,
+            "name": "Cable Crossovers",
+            "reps": "12",
+            "sets": "3",
+        }]
+    },
+    {
+        key: 1, day: 2, name: "Power Pull Day",
+        exercises: [{
+            "key": 0,
+            "name": "Barbell Rows",
+            "reps": "4",
+            "sets": "5",
+        }, {
+            "key": 1,
+            "name": "Neutral Grip Pulldowns",
+            "reps": "5",
+            "sets": "5",
+        }, {
+            "key": 2,
+            "name": "EZ Bar Curls",
+            "reps": "10",
+            "sets": "4",
+        }, {
+            "key": 3,
+            "name": "Preacher Curls",
+            "reps": "12",
+            "sets": "3",
+        }]
+    },
+    {
+        key: 2, day: 3, name: "Power Leg Day",
+        exercises: [{
+            "key": 0,
+            "name": "Bench Press",
+            "reps": "4",
+            "sets": "5",
+        }, {
+            "key": 1,
+            "name": "Overhead Press",
+            "reps": "5",
+            "sets": "5",
+        }, {
+            "key": 2,
+            "name": "Tricep Dips",
+            "reps": "10",
+            "sets": "4",
+        }, {
+            "key": 3,
+            "name": "Cable Crossovers",
+            "reps": "12",
+            "sets": "3",
+        }]
+    },
+    {
+        key: 3, day: 4, name: "Hypertrophy Push Day",
+        exercises: [{
+            "key": 0,
+            "name": "Bench Press",
+            "reps": "4",
+            "sets": "5",
+        }, {
+            "key": 1,
+            "name": "Overhead Press",
+            "reps": "5",
+            "sets": "5",
+        }, {
+            "key": 2,
+            "name": "Tricep Dips",
+            "reps": "10",
+            "sets": "4",
+        }, {
+            "key": 3,
+            "name": "Cable Crossovers",
+            "reps": "12",
+            "sets": "3",
+        }]
+    },
+    {
+        key: 4, day: 5, name: "Hypertrophy Pull Day",
+        exercises: [{
+            "key": 0,
+            "name": "Bench Press",
+            "reps": "4",
+            "sets": "5",
+        }, {
+            "key": 1,
+            "name": "Overhead Press",
+            "reps": "5",
+            "sets": "5",
+        }, {
+            "key": 2,
+            "name": "Tricep Dips",
+            "reps": "10",
+            "sets": "4",
+        }, {
+            "key": 3,
+            "name": "Cable Crossovers",
+            "reps": "12",
+            "sets": "3",
+        }]
+    },
+    {
+        key: 5, day: 6, name: "Hypertrophy Legs and Core Day",
+        exercises: [{
+            "key": 0,
+            "name": "Bench Press",
+            "reps": "4",
+            "sets": "5",
+        }, {
+            "key": 1,
+            "name": "Overhead Press",
+            "reps": "5",
+            "sets": "5",
+        }, {
+            "key": 2,
+            "name": "Tricep Dips",
+            "reps": "10",
+            "sets": "4",
+        }, {
+            "key": 3,
+            "name": "Cable Crossovers",
+            "reps": "12",
+            "sets": "3",
+        }]
+    },
 ]
 
 // class HomeScreen extends Component<Props> { //DEPRECATED
@@ -47,8 +184,8 @@ const list = [ //This will later be your Routine data from the Database.
 //         );
 //     }
 
-//     goToWorkout = (exerciseData: any) => {
-//         this.props.nav.navigate("Workout", { name: exerciseData.name });
+//     goToWorkout = (exercise: any) => {
+//         this.props.nav.navigate("Workout", { name: exercise.name });
 //     }
 
 //     render() {
@@ -71,39 +208,45 @@ const list = [ //This will later be your Routine data from the Database.
 function Home({ navigation }) {
 
     var date = new Date();
-
+    const { width } = Dimensions.get('window');
+    const { height } = Dimensions.get('screen')
     const [today, setDay] = useState(date.getDay());
     const [exerciseList, exerciseListEdit] = useState(list);
+    const findWorkout = (day) => {
+        return list.find((workout) => workout.day === today)
+    }
+    const todaysWorkout = findWorkout(today)
 
     const renderItem = ({ item }) => {
         let isToday: boolean
         if (item.day === today) { isToday = true } else { isToday = false }
         return (
-            <ExerciseCard day={4} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
+            <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
         );
     };
 
-    const goToWorkout = (exerciseData: any) => {
-        navigation.navigate("Workout", { name: exerciseData.name });
+    const goToWorkout = (exercise: any) => {
+        navigation.navigate("Workout", { name: exercise.name });
     }
 
 
     return (
         <ScrollView style={{ flex: 1, backgroundColor: 'black' }}>
+
             <StatusBar barStyle='light-content' />
-            <TodaysWorkout name="Hypertrophy Push Day" />
+
+            <TodaysWorkout item={todaysWorkout} onPressLink={goToWorkout}/>
             {/* props should later be the whole exercise */}
 
             <Text style={[styles.h1, { color: 'white', fontSize: 24, marginHorizontal: 16, marginBottom: 8 }]}>
                 Full workout:
             </Text>
 
-            <ScrollView>
+            <View>
                 {
                     exerciseList.map((item) => renderItem({ item }))
                 }
-            </ScrollView>
-
+            </View>
             {/* <HomeScreen nav={navigation} /> */}
         </ScrollView>
     )
@@ -112,14 +255,12 @@ function Home({ navigation }) {
 export default Home;
 
 // ================================= To-Do =================================
-// Dynamic dark/light mode. Idk how to use hooks.
-// Maybe sort the day so today's workout be on the top?
 // Go to workout based on the workout selected. Right now, the place holder is a "New Workout" 
-// 
+// Selected/Today's workout will be the one on the TodaysWorkout component. Pass it in as a prop.
 //
 //
 // ================================= Styling To-Do =================================
-// Redesign home screen into a style similar to iOS Spotify app; translucent header/status bar without a stack header.
-// Structure -> Scrollable logo directly into Today's Workout card at the top. Scroll down to see the remaining workout for the week.
-// Fade out the top and bottom of the ScrollView.
+// Fade out the top and bottom of the ScrollView. rn-faded-scrollview
+// Dynamic dark/light mode. Idk how to use hooks.
+//
 //

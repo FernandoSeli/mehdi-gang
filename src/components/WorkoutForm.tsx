@@ -3,6 +3,7 @@ import { Button, TextInput, View, Text, Alert } from 'react-native';
 import { Form, Formik, useFormikContext } from 'formik';
 import * as firebase from 'firebase';
 import style from '../styles/Styles';
+import { gray } from '../styles/Styles';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 interface FormValues {
@@ -29,7 +30,7 @@ const WorkoutForm = (props: any) => {
 
     const validate = (formData: object) => {
         // Do everytime onChangeText
-        let inputTimer:any
+        let inputTimer: any
         var duration = 150;
         clearTimeout(inputTimer)
         inputTimer = setTimeout(() => {
@@ -67,7 +68,7 @@ const WorkoutForm = (props: any) => {
                             onBlur={handleBlur('name')}
                             value={values.name}
                             style={style.inputBox}
-                            placeholder="Workout Name"
+                            placeholder="Workout Name" placeholderTextColor={gray}
                             keyboardAppearance="dark"
                         />
                     </View>
@@ -79,7 +80,7 @@ const WorkoutForm = (props: any) => {
                             value={values.reps}
                             style={style.inputBox}
                             keyboardType='numeric'
-                            placeholder='Repetitions'
+                            placeholder='Repetitions' placeholderTextColor={gray}
                             keyboardAppearance="dark"
                         />
                     </View>
@@ -91,7 +92,7 @@ const WorkoutForm = (props: any) => {
                             value={values.sets}
                             style={style.inputBox}
                             keyboardType='numeric'
-                            placeholder='Sets'
+                            placeholder='Sets' placeholderTextColor={gray}
                             keyboardAppearance="dark"
                         />
                     </View>

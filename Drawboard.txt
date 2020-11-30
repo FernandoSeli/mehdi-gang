@@ -26,7 +26,11 @@ User
 - selectedRoutine: string
 - ..Age, Weight, Sex, etc.
 
-
+======================== To-do ========================
+- Faded Scrollview
+- Display workout data + graph
+- Profile screen barebones
+- Complete workout form submission
 
 
 ======================== Feature Dump ========================
@@ -34,3 +38,4 @@ User
 - Link to proper form on each Exercise
 - Alarm/Notification before workouts and/or if the user skips a workout (Check-in system)
 - Sortable List on WorkoutScreen
+
