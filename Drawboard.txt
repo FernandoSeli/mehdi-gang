@@ -27,10 +27,12 @@ User
 - ..Age, Weight, Sex, etc.
 
 ======================== To-do ========================
-- Faded Scrollview
+- [!] New workout Session
+- [!] Planning on NewWorkout, WorkoutDetails, NewSession and SessionDetails dynamics. 
 - Display workout data + graph
 - Profile screen barebones
 - Complete workout form submission
+- Faded Scrollview
 
 
 ======================== Feature Dump ========================

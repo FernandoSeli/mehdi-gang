@@ -10,6 +10,7 @@ import Home from '../screens/HomeScreen'
 import Workout from '../screens/WorkoutScreen';
 import Blank from '../screens/TestPage';
 import ExploreScreen from '../screens/ExploreScreen';
+import WorkoutDetails from '../screens/WorkoutDetailsScreen';
 import { themeColor, darkBackground } from '../styles/Styles'
 //Visual Imports
 import { AntDesign, Entypo } from '@expo/vector-icons';
@@ -88,7 +89,15 @@ function ProfileTab() {
 function ExploreTab() {
     return (
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={Explore} options={{ title: "Explore workouts", headerTitleAlign: 'center' }} />
+            <Stack.Screen name="Home" component={WorkoutDetails} options={{
+                title: "Workout Details",
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+                    fontSize: 20,
+                    color: 'white',
+                },
+                headerStyle: darkHeader
+            }} />
         </Stack.Navigator>
     );
 }
@@ -98,55 +107,55 @@ class Navigation extends Component {
     render() {
         return (
             // <SafeAreaProvider>
-                <SafeAreaView style={{flex:1, backgroundColor: 'black'}}>
-                    <NavigationContainer>
-                        <Tab.Navigator
-                            screenOptions={({ route }) => ({
-                                tabBarIcon: ({ focused, color, size }) => {
-                                    size = 28;
-                                    let iconName;
-                                    if (route.name === 'Dashboard') {
-                                        iconName = 'pencil'
-                                        color = focused
-                                            ? themeColor
-                                            : 'gray'
-                                    }
-                                    else if (route.name === 'Explore') {
-                                        iconName = 'direction'
-                                        color = focused ? themeColor : 'gray'
-                                    }
-                                    else if (route.name === 'ProfileTab') {
-                                        iconName = 'user'
-                                        color = focused
-                                            ? themeColor
-                                            : 'gray'
-                                    }
-                                    return <Entypo name={iconName} size={size} color={color} />
-                                },
-                            })}
-                            tabBarOptions={{
-                                inactiveBackgroundColor: 'black',
-                                activeBackgroundColor: 'black',
-                                activeTintColor: 'white',
-                                style: { borderTopWidth: 0, padding: 4, backgroundColor: 'black' },
-                                
-                            }}
-                        >
-                            <Tab.Screen
-                                name="Dashboard"
-                                component={HomeTab}
-                            />
-                            <Tab.Screen
-                                name="Explore"
-                                component={ExploreTab}
-                            />
-                            <Tab.Screen
-                                name="ProfileTab"
-                                component={ProfileTab}
-                            />
-                        </Tab.Navigator>
-                    </NavigationContainer>
-                </SafeAreaView>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+                <NavigationContainer>
+                    <Tab.Navigator
+                        screenOptions={({ route }) => ({
+                            tabBarIcon: ({ focused, color, size }) => {
+                                size = 28;
+                                let iconName;
+                                if (route.name === 'Dashboard') {
+                                    iconName = 'pencil'
+                                    color = focused
+                                        ? themeColor
+                                        : 'gray'
+                                }
+                                else if (route.name === 'Explore') {
+                                    iconName = 'direction'
+                                    color = focused ? themeColor : 'gray'
+                                }
+                                else if (route.name === 'ProfileTab') {
+                                    iconName = 'user'
+                                    color = focused
+                                        ? themeColor
+                                        : 'gray'
+                                }
+                                return <Entypo name={iconName} size={size} color={color} />
+                            },
+                        })}
+                        tabBarOptions={{
+                            inactiveBackgroundColor: 'black',
+                            activeBackgroundColor: 'black',
+                            activeTintColor: 'white',
+                            style: { borderTopWidth: 0, padding: 4, backgroundColor: 'black' },
+
+                        }}
+                    >
+                        <Tab.Screen
+                            name="Dashboard"
+                            component={HomeTab}
+                        />
+                        <Tab.Screen
+                            name="Explore"
+                            component={ExploreTab}
+                        />
+                        <Tab.Screen
+                            name="ProfileTab"
+                            component={ProfileTab}
+                        />
+                    </Tab.Navigator>
+                </NavigationContainer>
+            </SafeAreaView>
             // </SafeAreaProvider>
         );
     }

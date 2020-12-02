@@ -4,9 +4,9 @@ import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-app
 export const themeColor = '#5caff2'
 const themeColorLight = '#a3d6ff'
 const themeContrastSuperLight = '#fafff2'
-export const darkBackground = "#262626"
+export const darkBackground = '#262626'
 export const gray = '#454545'
-const lightBackground = '#111114'
+export const lightBackground = '#111114'
 export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
 
 const styles = StyleSheet.create({
