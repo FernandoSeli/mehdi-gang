@@ -67,7 +67,7 @@ function Home({ navigation }) {
     const { height } = Dimensions.get('screen')
     const [today, setDay] = useState(date.getDay());
     const [exerciseList, exerciseListEdit] = useState(exerciseListJson);
-    const findWorkout = (day) => {
+    const findWorkout = (today) => {
         return exerciseListJson.find((workout) => workout.day === today)
     }
     const todaysWorkout = findWorkout(today)
