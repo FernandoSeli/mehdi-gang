@@ -28,10 +28,10 @@ User
 - ..Age, Weight, Sex, etc.
 
 ======================== To-do ========================
-- [!] New workout Session
-- [!] Planning on NewWorkout, WorkoutDetails, NewSession and SessionDetails dynamics. 
+- [!] Find a way to incorporate supersets, drop-sets, etc.
 - [?] Put exercise logs (Bench, Squats, etc.) in a dedicated exercise log table.
 - [?] Do we create classes for each data type or?
+- Too pale. Take inspiration from iOS' stock health app.
 - Display workout data + graph
 - Profile screen barebones
 - Complete workout form submission
@@ -56,3 +56,14 @@ Last Workout:
                  View Logs >>
                  New Entry >>
 -----------------------------
+
+
+Current Workout Cycle Plan
+
+- In WorkoutDetails screen, users are able to add new entries for each exercise. This means the "New Session" page is scrapped.
+- You will have to allow the user to edit past workout datas.
+- A workout data will not hold its exercises track data, as..
+- ..each Exercise will have its own track array data.
+- New Workout screen remains separate. 
+- TodayWorkout's button will redirect the user today's WorkoutDetails screen.
+- Pretty urgent: find a way to incorporate techniques such as supersets, dropsets, back-off sets, warmups, etc.
