@@ -4,13 +4,13 @@ const exerciseListJson = [ //This will later be your Routine data from the Datab
         exercises: [{
             "key": 0,
             "name": "Bench Press",
-            "reps": "4",
-            "sets": "5",
+            "reps": "8",
+            "sets": "4",
         }, {
             "key": 1,
             "name": "Overhead Press",
             "reps": "5",
-            "sets": "5",
+            "sets": "3",
         }, {
             "key": 2,
             "name": "Tricep Dips",

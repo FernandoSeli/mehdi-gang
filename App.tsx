@@ -1,6 +1,9 @@
 //Library Imports
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { useFonts } from 'expo-font'
+import { AppLoading } from 'expo'
+import { setCustomText } from 'react-native-global-props';
 //Screen Imports
 import HomeScreen from './src/screens/HomeScreen';
 import WorkoutScreen from './src/screens/WorkoutScreen';
@@ -16,9 +19,32 @@ if (!firebase.apps.length) {
 }
 
 export default function App() {
-  return (
+
+  let [fontsLoaded] = useFonts({
+    'New-York-r': require('./assets/fonts/NewYorkRegular.ttf'),
+    'OpenSans': require('./assets/fonts/OpenSans.ttf'),
+    'OpenSans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+  });
+
+  setCustomText({
+    style: {
+      fontFamily: 'OpenSans'
+    }
+  })
+
+  if (!fontsLoaded) {
+    return (
+      <View style={{ backgroundColor: 'black', flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+        <AppLoading/>
+        <ActivityIndicator size="large" color="#ffffff" />
+      </View>
+    )
+  }
+  else {
+    return (
       <Navigation />
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({

@@ -10,7 +10,7 @@ import styles from '../styles/Styles';
 
 function WorkoutDetails({ navigation: any }) {
 
-    const list = data.default.find(d => d.day === 2).exercises
+    const list = data.default.find(d => d.day === 1).exercises
 
     let sentence: string = '';
 

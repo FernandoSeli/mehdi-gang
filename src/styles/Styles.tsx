@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: themeColor,
-        fontSize: 14
+        fontSize: 15,
+        // textDecorationLine: 'underline'
     },
     buttonSolid: {
         alignItems: 'center',
@@ -77,28 +78,35 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         margin: 8,
-        // textDecorationLine: 'underline'
+        textDecorationLine: 'underline'
     },
     //Text
+    bold: {
+        fontFamily: 'OpenSans-bold',
+        color: 'white'
+    },
     text: {
-        fontSize: 16,
+        fontSize: 14,
+        color: 'white'
     },
     textBold: {
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 14,
+        fontFamily: 'OpenSans-bold',
+        color: 'white'
     },
     h1: {
         fontSize: 18,
-        fontWeight: 'bold',
+        fontFamily: 'OpenSans-bold',
+        color: 'white'
     },
     title: {
         fontSize: 18,
-        fontWeight: 'bold',
+        fontFamily: 'OpenSans-bold',
         color: 'white',
         marginVertical: 6,
     },
     title2: {
-        fontSize: 16,
+        fontSize: 15,
         color: 'white',
         marginVertical: 6,
     },
@@ -113,51 +121,51 @@ const styles = StyleSheet.create({
     //Inputs and Form Components
     formRow: {
         flexDirection: 'row',
-        marginHorizontal: 24,
-        marginVertical: 8
+        marginHorizontal: 8,
+        marginVertical: 2
     },
     inputLabel: {
-        marginRight: 26,
-        fontSize: 16,
-        // fontWeight: 'bold',
+        paddingHorizontal: 6,
+        paddingVertical: 10,
+        fontSize: 14,
+        // fontFamily: 'OpenSans-bold',
         color: 'white',
-        textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
+        // textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
         flex: 1,
-        justifyContent: 'center',
-        textAlign: 'center',
-        // backgroundColor: 'black', //Testing purposes only.
+        // backgroundColor: 'red', //Testing purposes only.
     },
     inputBox: {
-        padding: 8,
-        fontSize: 16,
-        height: 36,
-        flex: 5,
+        padding: 6,
+        fontSize: 14,
+        flex: 4,
         borderWidth: 1,
         borderColor: 'transparent',
         // borderBottomColor: gray,
         color: 'white',
+        // backgroundColor: 'red',
     },
     card: {
-        borderRadius: 6,
         // borderColor: '#d2d2d2',
         borderWidth: 0,
         marginTop: 14,
         marginHorizontal: 10,
         paddingHorizontal: 12,
-        paddingVertical: 12,
+        paddingVertical: 6,
         backgroundColor: lightBackground
     },
     //UI Elements
     homeCard: {
         borderWidth: 0,
-        borderRadius: 6,
-        padding: 18,
-        elevation: 2,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 2,
-        backgroundColor: lightBackground
+        // elevation: 2,
+        // shadowColor: '#000',
+        // shadowOffset: { width: 0, height: 2 },
+        // shadowOpacity: 0.1,
+        // shadowRadius: 2,
+        backgroundColor: lightBackground,
+        marginHorizontal: 10,
+        marginVertical: 8,
+        paddingHorizontal: 16,
+        paddingVertical: 14,
     }
 });
 

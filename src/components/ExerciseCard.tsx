@@ -18,14 +18,14 @@ const ExerciseCard = (props: any) => {
   if (selected) {
     // view = <Text style={styles.title}>{name}</Text>
     view =
-      <View style={[styles.card, styles.homeCard]}>
-        <Text style={[styles.light, {fontWeight: 'bold'}]}>Today</Text>
+      <View style={[styles.homeCard]}>
+        <Text style={[styles.light]}>Today</Text>
         <Text style={styles.title}>{name}</Text>
       </View>
   }
   else {
     view =
-      <View style={[styles.card, styles.homeCard]}>
+      <View style={[styles.homeCard]}>
         <Text style={styles.light}>Day {day}</Text>
         <Text style={styles.title2}>{name}</Text>
       </View>

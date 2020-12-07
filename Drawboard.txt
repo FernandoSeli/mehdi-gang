@@ -8,6 +8,7 @@ Exercise
 - Rest: number
 - Order: number
 - Track[]: TrackData
+- OneRepMax: number
 - Link?: string
 
 Workout
@@ -29,6 +30,8 @@ User
 ======================== To-do ========================
 - [!] New workout Session
 - [!] Planning on NewWorkout, WorkoutDetails, NewSession and SessionDetails dynamics. 
+- [?] Put exercise logs (Bench, Squats, etc.) in a dedicated exercise log table.
+- [?] Do we create classes for each data type or?
 - Display workout data + graph
 - Profile screen barebones
 - Complete workout form submission
@@ -41,3 +44,15 @@ User
 - Alarm/Notification before workouts and/or if the user skips a workout (Check-in system)
 - Sortable List on WorkoutScreen
 
+
+
+Workout Card Sketch
+
+------------------------------
+Barbell Rows 5 sets of 4 Reps
+1 Rep Max: 67.5
+Last Workout:
+        50      4, 4, 4, 4, 3
+                 View Logs >>
+                 New Entry >>
+-----------------------------

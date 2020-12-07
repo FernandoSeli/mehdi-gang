@@ -79,9 +79,10 @@ export default TodaysWorkout;
 const localStyles = StyleSheet.create({
     hiText: {
         color: 'white',
-        textAlign: 'center',
-        fontWeight: 'bold', fontSize: 28,
+        textAlign: 'center', 
+        fontSize: 28,
         paddingHorizontal: 18,
+        fontFamily: 'OpenSans-bold'
     },
     grayText: {
         color: 'gray',
