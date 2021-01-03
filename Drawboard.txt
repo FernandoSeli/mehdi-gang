@@ -3,25 +3,29 @@
 Exercise
 - Key: string //should be number but error
 - Name: string
-- Reps: string
-- Sets: string
-- Rest: number
-- Order: number
-- Track[]: TrackData
-- OneRepMax: number
 - Link?: string
+- oneRepMax: number
+
+WorkoutExercise
+- id: number
+- reps: string
+- sets: string
+- rest: number
+- order: number
+- exercise: Exercise
+- workout: Workout
 
 Workout
-- Key: string
-- Name: string
-- Day: number [1..7]
-- Exercises[]: Exercise
+- id: int
+- name: string
+- date: Date
+- workoutExercises: WorkoutExercise[]
 
-Routine
+WorkoutTemplate
 - uid?: For online sharing
 - Key: string
-- Name: string
-- Workouts[]: Workout
+- name: string
+- workouts: Workout[]
 
 User
 - selectedRoutine: string
@@ -67,3 +71,5 @@ Current Workout Cycle Plan
 - New Workout screen remains separate. 
 - TodayWorkout's button will redirect the user today's WorkoutDetails screen.
 - Pretty urgent: find a way to incorporate techniques such as supersets, dropsets, back-off sets, warmups, etc.
+
+

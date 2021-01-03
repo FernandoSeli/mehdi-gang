@@ -1,4 +1,5 @@
 //Library Imports
+import 'reflect-metadata';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font'
