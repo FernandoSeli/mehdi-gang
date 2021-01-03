@@ -1,5 +1,63 @@
-======================== Class Drawing Board ========================
+======================== To-Do ========================
+High
+- Implement the Changes, found below.
+- Finish MVP; follow the set document. Don't lose sight of the base design.
+- lbs to kg and vice versa settings. (use redux??)
+- WorkoutScreen adaptive new or template workout.
+- Delete a row from a workout.
 
+Medium
+- "Create custom workout" button.
+
+Low
+- New Workout screen label and textbox alighment.
+- New Workout screen minimize rows.
+
+======================== Changes ========================
+- Routine (now called WorkoutTemplate) and Workout will NO LONGER have predetermined Workouts and Exercises structure. Users will be able to add, remove and modify the corresponding child arrays freely. Stored WorkoutTemplate/Workout data is only used to track progression and an autofill should the user choose to run that particular day, which brings us to another proposition:
+- 'Days' should no longer be bound to actual weekday, but dependent on which workout the user last recorded. This will prevent users from not being able to shift their workout schedules (for example moving Chest day from Monday to Tuesday for a week). 
+- Each time a user presses the "New Session" button, the app will auto-fill the form with the appropriate Workout data based on the Workout the user choosed beforehand from some sort of dropdown. The user can then save that Workout only as the selected Workout type as a new Workout entry.
+- A WorkoutTemplate will then be a collection of possible Workout(s) without any bindings to when a Workout can be ran (days). Rework the TodaysWorkout component from showing today's workout to suggesting a workout based on what Workout the user ran last.
+- Create a bottom tab "Templates" to see all available workout Routines.
+- A Workout is just a template for a (new) Session to autofill. 
+
+======================== Backlog ========================
+- [!] Find a way to incorporate supersets, drop-sets, etc.
+- [?] Put exercise logs (Bench, Squats, etc.) in a dedicated exercise log table.
+- [?] Do we create classes for each data type or?
+- Too pale. Take inspiration from iOS' stock health app.
+- Display workout data + graph
+- Profile screen barebones
+- Complete workout form submission
+- Faded Scrollview
+- Explore page to clone other people's Routine
+- Link to proper form on each Exercise
+- Alarm/Notification before workouts and/or if the user skips a workout (Check-in system)
+- Sortable List on WorkoutScreen
+
+======================== Workout Card Sketch ========================
+
+------------------------------
+Barbell Rows 5 sets of 4 Reps
+1 Rep Max: 67.5
+Last Workout:
+        50      4, 4, 4, 4, 3
+                 View Logs >>
+                 New Entry >>
+-----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+(Obsolete, wait for Fernando's) ======================== Class Drawing Board ======================== 
 Exercise
 - Key: string //should be number but error
 - Name: string
@@ -27,39 +85,7 @@ User
 - selectedRoutine: string
 - ..Age, Weight, Sex, etc.
 
-======================== To-do ========================
-- [!] Find a way to incorporate supersets, drop-sets, etc.
-- [?] Put exercise logs (Bench, Squats, etc.) in a dedicated exercise log table.
-- [?] Do we create classes for each data type or?
-- Too pale. Take inspiration from iOS' stock health app.
-- Display workout data + graph
-- Profile screen barebones
-- Complete workout form submission
-- Faded Scrollview
-
-
-======================== Feature Dump ========================
-- Explore page to clone other people's Routine
-- Link to proper form on each Exercise
-- Alarm/Notification before workouts and/or if the user skips a workout (Check-in system)
-- Sortable List on WorkoutScreen
-
-
-
-Workout Card Sketch
-
-------------------------------
-Barbell Rows 5 sets of 4 Reps
-1 Rep Max: 67.5
-Last Workout:
-        50      4, 4, 4, 4, 3
-                 View Logs >>
-                 New Entry >>
------------------------------
-
-
-Current Workout Cycle Plan
-
+(Obsolete) ================================== Current Workout Cycle Plan ================================== 
 - In WorkoutDetails screen, users are able to add new entries for each exercise. This means the "New Session" page is scrapped.
 - You will have to allow the user to edit past workout datas.
 - A workout data will not hold its exercises track data, as..

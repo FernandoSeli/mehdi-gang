@@ -1,23 +1,17 @@
 import { useLinkProps } from '@react-navigation/native';
 import React, { Component } from 'react';
 import { View, Text, Platform, TouchableOpacity, FlatList, KeyboardAvoidingView } from 'react-native';
-import styles, { darkBackground } from '../styles/Styles';
+import styles, { darkBackground, keyboardVerticalOffset } from '../styles/Styles';
 //Component Imports
 import WorkoutForm from '../components/WorkoutForm';
 import { clockRunning } from 'react-native-reanimated';
 import Navigation from '../navigation/Navigation';
+import { ScrollView } from 'react-native-gesture-handler';
 
 type Props = {
     nav: any,
+    data: any,
 }
-
-interface formObject {
-    key: number,
-    name: string,
-    reps: string,
-    sets: string,
-}
-
 
 class WorkoutScreen extends Component<Props> {
 
@@ -27,15 +21,33 @@ class WorkoutScreen extends Component<Props> {
             name: 'Your Workout',
             exerciseArray: [],
         }
-        for (var i = 0; i < 1; i++) {
-            this.state.exerciseArray.push(
-                {
-                    key: i,
-                    name: "",
-                    reps: '',
-                    sets: '',
+        if (!props.data) {
+            for (var i = 0; i < 1; i++) {
+                this.state.exerciseArray.push(
+                    {
+                        key: i,
+                        name: "",
+                        reps: '',
+                        sets: '',
+                        weight: '',
+                        rest: '',
+                    }
+                )
+            }
+        }
+        else {
+            const data = props.data
+            for (var i = 0; i < data.length; i++) {
+                const child = {
+                    key: data[i].key,
+                    name: data[i].name,
+                    reps: data[i].reps,
+                    sets: data[i].sets,
+                    weight: '90',
+                    rest: '60',
                 }
-            )
+                this.state.exerciseArray.push(child)
+            }
         }
     }
 
@@ -48,12 +60,11 @@ class WorkoutScreen extends Component<Props> {
         const list = this.state.exerciseArray
         console.log("Current data list:");
         console.log(list);
-        
+        alert("See console to view output.")
     }
 
-    renderItem = ({ item }) => (
-        <WorkoutForm itemData={item} onChange={this.onChangeItemData}/>
-    );
+    renderItem = ({ item }) => <WorkoutForm itemData={item} onChange={this.onChangeItemData} key={item.key} />
+
 
     onChangeItemData = (newData: any) => {
         this.setState(
@@ -86,13 +97,19 @@ class WorkoutScreen extends Component<Props> {
 
                     {/* <WorkoutForm /> */}
 
-                    <FlatList
+                    {/* <FlatList
                         data={this.state.exerciseArray}
                         renderItem={this.renderItem}
                         keyExtractor={item => { return item.key.toString() }}
                         extraData={this.state.exerciseArray}
                         style={{width: '100%'}}
-                    />
+                    /> */}
+
+                    <ScrollView style={{ width: '100%' }}>
+                        {
+                            this.state.exerciseArray.map((item) => this.renderItem({ item }))
+                        }
+                    </ScrollView>
 
                     <TouchableOpacity onPress={this.onPlusButton}>
                         <Text style={[styles.linkedText, styles.white]}>Add a new exercise</Text>
@@ -106,21 +123,22 @@ class WorkoutScreen extends Component<Props> {
     }
 }
 
-function Workout({ navigation }) {
-    React.useLayoutEffect(() => {
-        navigation.setOptions({
-            headerRight: () => (
-                <TouchableOpacity onPress={() => alert("Add new!")}>
-                    <Text style={{ fontSize: 28, textAlign: 'center', marginRight: 20, color: 'blue' }}>ASDASD</Text>
-                </TouchableOpacity>
-            ),
+function Workout({ route, navigation }) {
+    // React.useLayoutEffect(() => {
+    //     navigation.setOptions({
+    //         headerRight: () => (
+    //             <TouchableOpacity onPress={() => alert("Add new!")}>
+    //                 <Text style={{ fontSize: 34, textAlign: 'center', marginRight: 16, color: 'white' }}>+</Text>
+    //             </TouchableOpacity>
+    //         ),
 
-        });
-    }, [navigation])
-    return (<WorkoutScreen nav={navigation} />)
+    //     });
+    // }, [navigation])
+    const data = route.params.item
+    return (<WorkoutScreen nav={navigation} data={data} />)
 };
 
-export default WorkoutScreen;
+export default Workout;
 
 // ------------------ To-Do ------------------
 // Yellow warning: keys and shit
