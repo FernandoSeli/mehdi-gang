@@ -76,12 +76,12 @@ function Home({ navigation }) {
         let isToday: boolean
         if (item.day === today) { isToday = true } else { isToday = false }
         return (
-            <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
+            <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key}/>
         );
     };
 
-    const goToWorkout = (exercise: any) => {
-        navigation.navigate("Workout", { name: exercise.name });
+    const goToWorkout = (item: any) => {
+        navigation.navigate("Workout", { name: item.name, item: item.exercises}); //Ask Nando if you should prop the whole data.
     }
 
 
@@ -93,8 +93,8 @@ function Home({ navigation }) {
             <TodaysWorkout item={todaysWorkout} onPressLink={goToWorkout}/>
             {/* props should later be the whole exercise */}
 
-            <Text style={[styles.h1, { color: 'white', fontSize: 24, marginHorizontal: 16, marginBottom: 8 }]}>
-                Full workout:
+            <Text style={[styles.h1, { color: 'white', fontSize: 20, marginHorizontal: 16, marginBottom: 8 }]}>
+               Choose from <Text style={{color: themeColor}}>PPL</Text>:
             </Text>
 
             <View>

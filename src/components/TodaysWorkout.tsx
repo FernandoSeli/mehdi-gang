@@ -34,7 +34,7 @@ const TodaysWorkout = (props: todaysWorkoutProps) => {
 
         const exerciseListout = () => {
             let sentence = 'You are doing '
-            list.map(e => {
+            list.map((e: { key: number; name: string; }) => {
                 if (e.key === list.length - 1) {
                     sentence = sentence + 'and ' + e.name + ' for today.'
                     return
@@ -46,7 +46,7 @@ const TodaysWorkout = (props: todaysWorkoutProps) => {
         const sentence = exerciseListout()
         render =
             <View>
-                <Text style={localStyles.hiText}>Hi {userName}. Today's workout is
+                <Text style={localStyles.hiText}>Hi {userName}. Your next workout is
         <Text style={{ color: themeColor }}> {item.name}.</Text>
                 </Text>
                 <Text style={localStyles.grayText}>
@@ -65,7 +65,7 @@ const TodaysWorkout = (props: todaysWorkoutProps) => {
     return (
         <View style={{
             backgroundColor: 'black',
-            minHeight: 280,
+            minHeight: 260,
             alignContent: 'center',
             justifyContent: 'center',
         }}>
@@ -80,9 +80,9 @@ const localStyles = StyleSheet.create({
     hiText: {
         color: 'white',
         textAlign: 'center', 
-        fontSize: 28,
-        paddingHorizontal: 18,
-        fontFamily: 'OpenSans-bold'
+        fontSize: 26,
+        paddingHorizontal: 16,
+        fontFamily: 'OpenSans-bold',
     },
     grayText: {
         color: 'gray',

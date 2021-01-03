@@ -6,16 +6,17 @@ import style from '../styles/Styles';
 import { gray } from '../styles/Styles';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
-interface FormValues {
+interface FormValues { //Might want to put on a separate file later on.
+    //Also Formik only accepts String. Please make sure you store the data as number.
     key: number;
     name: string;
     reps: string; //Reps and sets should be number, if possible.
     sets: string;
+    weight: string; //default in kgs.
+    rest: string; //in seconds
 }
 
 var data = [];
-
-
 
 // const WorkoutForm: React.FC<{}> = props => {
 const WorkoutForm = (props: any) => {
@@ -45,23 +46,24 @@ const WorkoutForm = (props: any) => {
         // console.log(props.itemData)
     }
 
-    const initialValues: FormValues = {
-        key: itemData.key,
-        name: itemData.name,
-        reps: itemData.reps,
-        sets: itemData.sets,
-    }
-
+    // const initialValues: FormValues = {
+    //     key: itemData.key,
+    //     name: itemData.name,
+    //     reps: itemData.reps,
+    //     sets: itemData.sets,
+    //     weight: itemData.weight,
+    //     rest: itemData.rest,
+    // }
 
     return (
         <Formik
-            initialValues={initialValues}
+            initialValues={itemData}
             onSubmit={values => submit(values)}
             validate={values => validate(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View style={style.card}>
-                    <View style={style.formRow}>
+                    <View style={style.formRow}> 
                         <Text style={style.inputLabel}>Name</Text>
                         <TextInput
                             onChangeText={handleChange('name')}
@@ -69,6 +71,18 @@ const WorkoutForm = (props: any) => {
                             value={values.name}
                             style={style.inputBox}
                             placeholder="Workout Name" placeholderTextColor={gray}
+                            keyboardAppearance="dark"
+                        />
+                    </View>
+                    <View style={style.formRow}>
+                        <Text style={style.inputLabel}>Weight</Text>
+                        <TextInput
+                            onChangeText={handleChange('weight')}
+                            onBlur={handleBlur('weight')}
+                            value={values.weight}
+                            style={style.inputBox}
+                            keyboardType='numeric'
+                            placeholder='Lift weight' placeholderTextColor={gray}
                             keyboardAppearance="dark"
                         />
                     </View>
@@ -93,6 +107,18 @@ const WorkoutForm = (props: any) => {
                             style={style.inputBox}
                             keyboardType='numeric'
                             placeholder='Sets' placeholderTextColor={gray}
+                            keyboardAppearance="dark"
+                        />
+                    </View>
+                    <View style={style.formRow}>
+                        <Text style={style.inputLabel}>Rest</Text>
+                        <TextInput
+                            onChangeText={handleChange('rest')}
+                            onBlur={handleBlur('rest')}
+                            value={values.rest}
+                            style={style.inputBox}
+                            keyboardType='numeric'
+                            placeholder='Rest time' placeholderTextColor={gray}
                             keyboardAppearance="dark"
                         />
                     </View>

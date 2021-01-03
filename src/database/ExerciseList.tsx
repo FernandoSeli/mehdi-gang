@@ -51,7 +51,7 @@ const exerciseListJson = [ //This will later be your Routine data from the Datab
         key: 2, day: 3, name: "Power Leg Day",
         exercises: [{
             "key": 0,
-            "name": "Bench Press",
+            "name": "Squats",
             "reps": "4",
             "sets": "5",
         }, {
@@ -75,7 +75,7 @@ const exerciseListJson = [ //This will later be your Routine data from the Datab
         key: 3, day: 4, name: "Hypertrophy Push Day",
         exercises: [{
             "key": 0,
-            "name": "Bench Press",
+            "name": "Incline Bench Press",
             "reps": "4",
             "sets": "5",
         }, {
@@ -99,7 +99,7 @@ const exerciseListJson = [ //This will later be your Routine data from the Datab
         key: 4, day: 5, name: "Hypertrophy Pull Day",
         exercises: [{
             "key": 0,
-            "name": "Bench Press",
+            "name": "Lat Pulldowns",
             "reps": "4",
             "sets": "5",
         }, {
@@ -123,7 +123,7 @@ const exerciseListJson = [ //This will later be your Routine data from the Datab
         key: 5, day: 6, name: "Hypertrophy Legs and Core Day",
         exercises: [{
             "key": 0,
-            "name": "Bench Press",
+            "name": "Lunges",
             "reps": "4",
             "sets": "5",
         }, {

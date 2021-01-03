@@ -86,11 +86,11 @@ function ProfileTab() {
         </Stack.Navigator>
     );
 }
-function ExploreTab() {
+function ExploreTab() { //Probably better put this function on the specific .tsx file next time?
     return (
         <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={WorkoutDetails} options={{
-                title: "Workout Details",
+                title: "Details Screen (dev)",
                 headerTitleAlign: 'center',
                 headerTitleStyle: {
                     fontSize: 20,
