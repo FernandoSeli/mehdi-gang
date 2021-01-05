@@ -76,12 +76,21 @@ function Home({ navigation }) {
         let isToday: boolean
         if (item.day === today) { isToday = true } else { isToday = false }
         return (
-            <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key}/>
+            <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
         );
     };
 
     const goToWorkout = (item: any) => {
-        navigation.navigate("Workout", { name: item.name, item: item.exercises}); //Ask Nando if you should prop the whole data.
+        let name:string, exercises:any;
+        if(item){
+            name = item.name
+            exercises = item.exercises
+        }
+        else{
+            name = '',
+            exercises= null
+        }
+        navigation.navigate("Workout", { name: name, item: exercises }); //Ask Nando if you should prop the whole data.
     }
 
 
@@ -90,11 +99,11 @@ function Home({ navigation }) {
 
             <StatusBar barStyle='light-content' />
 
-            <TodaysWorkout item={todaysWorkout} onPressLink={goToWorkout}/>
+            <TodaysWorkout item={todaysWorkout} onPressLink={goToWorkout} />
             {/* props should later be the whole exercise */}
 
             <Text style={[styles.h1, { color: 'white', fontSize: 20, marginHorizontal: 16, marginBottom: 8 }]}>
-               Choose from <Text style={{color: themeColor}}>PPL</Text>:
+                Choose from <Text style={{ color: themeColor }}>PPL</Text>:
             </Text>
 
             <View>
@@ -102,6 +111,16 @@ function Home({ navigation }) {
                     exerciseList.map((item) => renderItem({ item }))
                 }
             </View>
+
+            <TouchableOpacity onPress={() => goToWorkout(null)}>
+                <Text style={[styles.linkedText, {
+                    marginHorizontal: 16,
+                    marginVertical: 8,
+                    // textAlign: 'left'
+                }]}>
+                    New workout template
+                </Text>
+            </TouchableOpacity>
             {/* <HomeScreen nav={navigation} /> */}
         </ScrollView>
     )

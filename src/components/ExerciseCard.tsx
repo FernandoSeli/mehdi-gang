@@ -38,4 +38,4 @@ const ExerciseCard = (props: any) => {
   );
 };
 
-export default ExerciseCard;
+export default ExerciseCard; //Rename this to SessionCard later.

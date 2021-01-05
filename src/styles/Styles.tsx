@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     darkContainer: {
         backgroundColor: 'black',
         flex: 1,
-        alignItems: 'center',
+        // alignItems: 'center',
         justifyContent: 'center',
     },
     defaultLight: {

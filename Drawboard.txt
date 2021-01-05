@@ -1,14 +1,17 @@
 ======================== To-Do ========================
 High
+- Finish MVP; follow the requirement document. Don't lose sight of the base design.
+- Add, delete and edit workout templates.
+- "New Session" page recording reps for each set, allowing additional sets and different rest times [need a change in the data structure]
+- A WorkoutTemplate and a WorkoutRecord is different. Consult with Fernando.
 - Implement the Changes, found below.
-- Finish MVP; follow the set document. Don't lose sight of the base design.
-- lbs to kg and vice versa settings. (use redux??)
-- WorkoutScreen adaptive new or template workout.
-- Delete a row from a workout.
-
 
 Medium
 - "Create custom workout" button.
+- [+] [-] buttons to adjust exercise parameters.
+- lbs to kg and vice versa settings. (use redux??)
+- Data is still sent as props all the way from Track and Home screen. Make it so it only passes 'key' as prop and load the data only in its corresponding screens.
+- Supersets, dropsets implementation.
 
 Low
 - New Workout screen label and textbox alighment.
@@ -58,8 +61,8 @@ Last Workout:
 
 
 
-(Obsolete, wait for Fernando's) ======================== Class Drawing Board ======================== 
-Exercise
+======================== Class Drawing Board ======================== 
+Exercise?
 - Key: string //should be number but error
 - Name: string
 - Link?: string
@@ -67,12 +70,19 @@ Exercise
 
 WorkoutExercise
 - id: number
-- reps: string
-- sets: string
-- rest: number
+- reps: string //Remove
+- sets: string //Remove??
+- rest: number //Remove
 - order: number
 - exercise: Exercise
-- workout: Workout
+- workout: Workout [?]
+- date: date
+                        Proposition: remove reps and rest to add:
+                        - set: Set[]
+                        Set
+                        - setNumber: number
+                        - reps: number
+                        - rest: number
 
 Workout
 - id: int

@@ -1,0 +1,49 @@
+import React, { Component, useState } from 'react';
+import { View, Text, ScrollView } from 'react-native';
+import styles from '../styles/Styles'
+import exerciseListJson from '../database/ExerciseList'
+import ExerciseCard from '../components/ExerciseCard'
+import WorkoutCard from '../components/WorkoutCard'
+
+export interface Props {
+
+}
+
+//At the moment, this screen extracts data from the WorkoutTemplate list. Change it later to WorkoutRecord list.
+export default function WorkoutList({ navigation }) {
+
+    const list = exerciseListJson
+    // <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
+
+    const goToWorkout = (item: any) => {
+        const exerciseList = item.exercises
+        navigation.navigate("Details", { key: item.key, item: exerciseList });
+        // console.log(exerciseList);
+    }
+
+    const renderItem = ({ item }) => {
+        return (
+            // <ExerciseCard day={item.day} name={item.name} onPress={() => goToWorkout(item)} key={item.key} />
+            <WorkoutCard item={item} key={item.key} onPress={() => goToWorkout(item)} />
+        );
+    }
+
+    if (!list) {
+        return (
+            <View style={styles.darkContainer}>
+                <Text style={styles.white}>No available workout record.</Text>
+            </View>
+        )
+    }
+    else {
+        return (
+            <View style={styles.darkContainer}>
+                <ScrollView>
+                    {
+                        list.map(item => renderItem({ item }))
+                    }
+                </ScrollView>
+            </View>
+        );
+    }
+}

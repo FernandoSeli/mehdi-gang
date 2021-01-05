@@ -11,6 +11,8 @@ import Workout from '../screens/WorkoutScreen';
 import Blank from '../screens/TestPage';
 import ExploreScreen from '../screens/ExploreScreen';
 import WorkoutDetails from '../screens/WorkoutDetailsScreen';
+import WorkoutList from '../screens/WorkoutListScreen';
+import Profile from '../screens/ProfileScreen';
 import { themeColor, darkBackground } from '../styles/Styles'
 //Visual Imports
 import { AntDesign, Entypo } from '@expo/vector-icons';
@@ -19,6 +21,7 @@ import { StatusBar } from 'expo-status-bar';
 type StackParams = {
     Home: undefined;
     Workout: { name: string };
+    Details: { key: string, item: any } //Temporary item
     // Feed: { sort: 'latest' | 'top' } | undefined;
 };
 type TabParams = {
@@ -62,9 +65,11 @@ function HomeTab() {
             <Stack.Screen
                 name="Workout"
                 component={Workout}
-                options={({ route, navigation }) =>
-                    ({
-                        title: route.params.name, //Title should adapt based on the name of the workout.
+                options={({ route, navigation }) => {
+                    let name = route.params.name
+                    if (name === '') { name = "New Workout" }
+                    return ({
+                        title: name, //Title should adapt based on the name of the workout.
                         headerTitleStyle: {
                             color: 'white',
                             fontSize: 24,
@@ -72,7 +77,8 @@ function HomeTab() {
                         headerStyle: darkHeader,
                         headerTintColor: 'white',
                         headerBackTitleVisible: false,
-                    })}
+                    })
+                }}
             />
         </Stack.Navigator>
     );
@@ -80,17 +86,32 @@ function HomeTab() {
 function ProfileTab() {
     return (
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={Blank} options={{
-                title: 'What are you doing here?',
+            <Stack.Screen name="Home" component={Profile} options={{
+                title: 'Your Name',
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+                    fontSize: 20,
+                    color: 'white',
+                },
+                headerStyle: darkHeader
             }} />
         </Stack.Navigator>
     );
 }
-function ExploreTab() { //Probably better put this function on the specific .tsx file next time?
+function TrackTab() { // Track page to see all past workouts in a list. Able to filter etc.
     return (
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={WorkoutDetails} options={{
-                title: "Details Screen (dev)",
+            <Stack.Screen name="Home" component={WorkoutList} options={{
+                title: "Past workouts",
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+                    fontSize: 20,
+                    color: 'white',
+                },
+                headerStyle: darkHeader
+            }} />
+            <Stack.Screen name="Details" component={WorkoutDetails} options={{
+                title: "Past workouts",
                 headerTitleAlign: 'center',
                 headerTitleStyle: {
                     fontSize: 20,
@@ -120,11 +141,11 @@ class Navigation extends Component {
                                         ? themeColor
                                         : 'gray'
                                 }
-                                else if (route.name === 'Explore') {
+                                else if (route.name === 'Track') {
                                     iconName = 'direction'
                                     color = focused ? themeColor : 'gray'
                                 }
-                                else if (route.name === 'ProfileTab') {
+                                else if (route.name === 'Profile') {
                                     iconName = 'user'
                                     color = focused
                                         ? themeColor
@@ -146,11 +167,11 @@ class Navigation extends Component {
                             component={HomeTab}
                         />
                         <Tab.Screen
-                            name="Explore"
-                            component={ExploreTab}
+                            name="Track"
+                            component={TrackTab}
                         />
                         <Tab.Screen
-                            name="ProfileTab"
+                            name="Profile"
                             component={ProfileTab}
                         />
                     </Tab.Navigator>
