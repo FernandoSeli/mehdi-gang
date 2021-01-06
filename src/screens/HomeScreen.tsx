@@ -16,50 +16,6 @@ type Props = {
     nav: any,
 }
 
-// class HomeScreen extends Component<Props> { //DEPRECATED
-
-//     state = {
-//         today: null,
-//     }
-
-//     componentDidMount() {
-//         var date = new Date();
-//         var day = date.getDay()
-//         this.setState({
-//             // today: day,
-//             today: 4,
-//         })
-//     }
-
-//     renderItem = ({ item }) => {
-//         let isToday: boolean
-//         if (item.day === this.state.today) { isToday = true } else { isToday = false }
-//         return (
-//             <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => this.goToWorkout(item)} />
-//         );
-//     }
-
-//     goToWorkout = (exercise: any) => {
-//         this.props.nav.navigate("Workout", { name: exercise.name });
-//     }
-
-//     render() {
-//         return (
-//             // <SafeAreaView style={{flex: 1,}}>
-//             <View style={styles.defaultLight}>
-//                 {/* <NewWorkoutBtn title="Create a new workout day" nav={this.props.nav} /> */}
-//                 <FlatList
-//                     data={exerciseListJson}
-//                     renderItem={this.renderItem}
-//                     keyExtractor={item => { return item.key.toString() }}
-//                     extraData={exerciseListJson}
-//                 />
-//             </View>
-//             // </SafeAreaView>
-//         );
-//     }
-// }
-
 function Home({ navigation }) {
 
     var date = new Date();
