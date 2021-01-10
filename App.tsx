@@ -35,7 +35,7 @@ export default function App() {
 
   if (!fontsLoaded) {
     return (
-      <View style={{ backgroundColor: 'black', flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+      <View style={{ backgroundColor: 'red', flex: 1, justifyContent: 'center', alignItems: 'center', }}>
         <AppLoading/>
         <ActivityIndicator size="large" color="#ffffff" />
       </View>

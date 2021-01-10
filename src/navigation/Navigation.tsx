@@ -34,7 +34,7 @@ const Tab = createBottomTabNavigator();
 //Constants
 const darkHeader = {
     height: 60,
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
     borderBottomWidth: 0,
     elevation: 0,
     shadowOpacity: 0,
@@ -57,7 +57,7 @@ function HomeTab() {
                     headerTitleStyle: {
                         fontSize: 34,
                         fontWeight: 'bold',
-                        color: 'white',
+                        // color: 'white',
                     },
                     headerStyle: darkHeader
                 }}
@@ -71,11 +71,11 @@ function HomeTab() {
                     return ({
                         title: name, //Title should adapt based on the name of the workout.
                         headerTitleStyle: {
-                            color: 'white',
+                            // color: 'white',
                             fontSize: 24,
                         },
                         headerStyle: darkHeader,
-                        headerTintColor: 'white',
+                        // headerTintColor: 'white',
                         headerBackTitleVisible: false,
                     })
                 }}
@@ -106,7 +106,7 @@ function TrackTab() { // Track page to see all past workouts in a list. Able to 
                 headerTitleAlign: 'center',
                 headerTitleStyle: {
                     fontSize: 20,
-                    color: 'white',
+                    // color: 'white',
                 },
                 headerStyle: darkHeader
             }} />
@@ -115,7 +115,7 @@ function TrackTab() { // Track page to see all past workouts in a list. Able to 
                 headerTitleAlign: 'center',
                 headerTitleStyle: {
                     fontSize: 20,
-                    color: 'white',
+                    // color: 'white',
                 },
                 headerStyle: darkHeader
             }} />
@@ -128,7 +128,7 @@ class Navigation extends Component {
     render() {
         return (
             // <SafeAreaProvider>
-            <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                 <NavigationContainer>
                     <Tab.Navigator
                         screenOptions={({ route }) => ({
@@ -155,11 +155,10 @@ class Navigation extends Component {
                             },
                         })}
                         tabBarOptions={{
-                            inactiveBackgroundColor: 'black',
-                            activeBackgroundColor: 'black',
-                            activeTintColor: 'white',
-                            style: { borderTopWidth: 0, padding: 4, backgroundColor: 'black' },
-
+                            inactiveBackgroundColor: 'white',
+                            activeBackgroundColor: 'white',
+                            activeTintColor: 'black',
+                            style: { borderTopWidth: 0, padding: 4, backgroundColor: 'white' },
                         }}
                     >
                         <Tab.Screen

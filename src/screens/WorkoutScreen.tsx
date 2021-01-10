@@ -112,10 +112,10 @@ class WorkoutScreen extends Component<Props> {
                     </ScrollView>
 
                     <TouchableOpacity onPress={this.onPlusButton}>
-                        <Text style={[styles.linkedText, styles.white]}>Add a new exercise</Text>
+                        <Text style={[styles.linkedText]}>Add a new exercise</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.onPressSubmit}>
-                        <Text style={[styles.linkedText, styles.white]}>Submit</Text>
+                        <Text style={[styles.linkedText]}>Submit</Text>
                     </TouchableOpacity>
                 </View>
             </KeyboardAvoidingView>

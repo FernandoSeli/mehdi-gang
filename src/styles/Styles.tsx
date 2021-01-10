@@ -4,9 +4,9 @@ import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-app
 export const themeColor = '#5caff2'
 const themeColorLight = '#a3d6ff'
 const themeContrastSuperLight = '#fafff2'
-export const darkBackground = '#262626'
+export const darkBackground = '#FFFFFF'//'#262626'
 export const gray = '#454545'
-export const lightBackground = '#111114'
+export const lightBackground = '#EFEFEF' //'#111114'
 export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
 
 const styles = StyleSheet.create({
@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
     },
     formContainer: {
         justifyContent: 'flex-start',
-        backgroundColor: 'black',
+        // backgroundColor: 'black',
         flex: 1,
         alignItems: 'center',
     },
     darkContainer: {
-        backgroundColor: 'black',
+        backgroundColor: 'white',//'black',
         flex: 1,
         // alignItems: 'center',
         justifyContent: 'center',
@@ -76,46 +76,54 @@ const styles = StyleSheet.create({
     },
     linkedText: {
         textAlign: 'center',
-        color: 'white',
+        color: 'black',
         margin: 8,
         textDecorationLine: 'underline'
     },
     //Text
     bold: {
         fontFamily: 'OpenSans-bold',
-        color: 'white'
+        letterSpacing: -.5,
+        // color: 'white'
     },
     text: {
         fontSize: 14,
-        color: 'white'
+        letterSpacing: -.5,
+        // color: 'white'
     },
     textBold: {
         fontSize: 14,
+        letterSpacing: -.5,
         fontFamily: 'OpenSans-bold',
-        color: 'white'
+        // color: 'white'
     },
     h1: {
         fontSize: 18,
+        letterSpacing: -.5,
         fontFamily: 'OpenSans-bold',
-        color: 'white'
+        // color: 'white'
     },
     title: {
         fontSize: 18,
+        letterSpacing: -.5,
         fontFamily: 'OpenSans-bold',
-        color: 'white',
+        // color: 'white',
         marginVertical: 6,
     },
     title2: {
         fontSize: 15,
-        color: 'white',
+        letterSpacing: -.5,
+        // color: 'white',
         marginVertical: 6,
     },
     light: {
         fontSize: 14,
+        letterSpacing: -.5,
         color: '#b3b3b3',
     },
     debug: {
         fontSize: 12,
+        letterSpacing: -.5,
         color: 'red'
     },
     //Inputs and Form Components
@@ -129,7 +137,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         fontSize: 14,
         // fontFamily: 'OpenSans-bold',
-        color: 'white',
+        // color: 'white',
         // textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
         flex: 1,
         // backgroundColor: 'red', //Testing purposes only.
@@ -141,7 +149,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'transparent',
         // borderBottomColor: gray,
-        color: 'white',
+        // color: 'white',
         // backgroundColor: 'red',
     },
     card: {

@@ -51,14 +51,14 @@ function Home({ navigation }) {
 
 
     return (
-        <ScrollView style={{ flex: 1, backgroundColor: 'black' }}>
+        <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
 
-            <StatusBar barStyle='light-content' />
+            <StatusBar barStyle='dark-content' backgroundColor='white' />
 
             <TodaysWorkout item={todaysWorkout} onPressLink={goToWorkout} />
             {/* props should later be the whole exercise */}
 
-            <Text style={[styles.h1, { color: 'white', fontSize: 20, marginHorizontal: 16, marginBottom: 8 }]}>
+            <Text style={[styles.h1, { color: 'black', fontSize: 20, marginHorizontal: 16, marginBottom: 8 }]}>
                 Choose from <Text style={{ color: themeColor }}>PPL</Text>:
             </Text>
 

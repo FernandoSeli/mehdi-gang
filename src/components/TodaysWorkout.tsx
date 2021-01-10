@@ -64,7 +64,7 @@ const TodaysWorkout = (props: todaysWorkoutProps) => {
 
     return (
         <View style={{
-            backgroundColor: 'black',
+            // backgroundColor: 'black',
             minHeight: 260,
             alignContent: 'center',
             justifyContent: 'center',
@@ -78,11 +78,12 @@ export default TodaysWorkout;
 
 const localStyles = StyleSheet.create({
     hiText: {
-        color: 'white',
+        color: 'black',
         textAlign: 'center', 
         fontSize: 26,
         paddingHorizontal: 16,
         fontFamily: 'OpenSans-bold',
+        letterSpacing: -2,
     },
     grayText: {
         color: 'gray',
