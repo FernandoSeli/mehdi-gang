@@ -10,6 +10,7 @@ export interface Props {
 export default function WorkoutCard(props: Props) {
 
     const { item, onPress } = props
+    const routineName = 'PPL' //Temporary hardcode
 
     return (
         <TouchableOpacity onPress={() => onPress(item)}>
@@ -19,7 +20,7 @@ export default function WorkoutCard(props: Props) {
                 alignItems: 'center'
             }]}>
                 <Text style={localStyle.title}>{item.name}</Text>
-                <Text style={[styles.light, localStyle.date]}>02/04/2021</Text>
+                <Text style={[styles.light, localStyle.date]}>{routineName}</Text>
             </View>
         </TouchableOpacity>
     );

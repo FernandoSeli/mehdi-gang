@@ -59,7 +59,7 @@ function Home({ navigation }) {
             {/* props should later be the whole exercise */}
 
             <Text style={[styles.h1, { color: 'black', fontSize: 20, marginHorizontal: 16, marginBottom: 8 }]}>
-                Choose from <Text style={{ color: themeColor }}>PPL</Text>:
+                New session from <Text style={{ color: themeColor }}>PPL</Text>:
             </Text>
 
             <View>

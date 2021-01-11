@@ -1,10 +1,12 @@
-[Last updated: 1/9/21]
+[Last updated: 1/10/21]
 ======================== To-Do ========================
+:Ongoing
+- WorkoutTemplateScreen.tsx
+- Rework WorkoutScreen.tsx to a "New Session" page. (inspiration from Gravitus)
+
 :High
 - Complete the basic requirements found on the requirements docx.
 - Add new, delete and edit workout templates. (Take inspiration from Gravitus)
-- "New Session" page and view past session logs (Take inspiration from Gravitus)
-- Frontend to backend structure appropriation (class dig. on Draw.io)
 - [?] Connect to a workout database API instead of writing from scratch on your own. (Take inspiration from Gravitus)
 
 :Medium

@@ -10,19 +10,23 @@ import Home from '../screens/HomeScreen'
 import Workout from '../screens/WorkoutScreen';
 import Blank from '../screens/TestPage';
 import ExploreScreen from '../screens/ExploreScreen';
-import WorkoutDetails from '../screens/WorkoutDetailsScreen';
-import WorkoutList from '../screens/WorkoutListScreen';
+import WorkoutTemplateViewDetails from '../screens/WorkoutTemplateViewDetails';
+import WorkoutTemplateList from '../screens/WorkoutTemplateListScreen';
+import WorkoutTemplateDetails from '../screens/WorkoutTemplateScreen';
 import Profile from '../screens/ProfileScreen';
 import { themeColor, darkBackground } from '../styles/Styles'
 //Visual Imports
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+import WorkoutTemplateEditor from '../screens/WorkoutTemplateScreen';
 //Params type definition
 type StackParams = {
     Home: undefined;
     Workout: { name: string };
-    Details: { key: string, item: any } //Temporary item
+    Details: { key: string, item: any } //Temporary 'item' parameters
+    NewTemplate: {}
     // Feed: { sort: 'latest' | 'top' } | undefined;
+    
 };
 type TabParams = {
 }
@@ -101,8 +105,17 @@ function ProfileTab() {
 function TrackTab() { // Track page to see all past workouts in a list. Able to filter etc.
     return (
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={WorkoutList} options={{
-                title: "Past workouts",
+            <Stack.Screen name="Home" component={WorkoutTemplateList} options={{
+                title: "Workout Templates",
+                headerTitleAlign: 'left',
+                headerTitleStyle: {
+                    fontSize: 20,
+                    // color: 'white',
+                },
+                headerStyle: darkHeader
+            }} />
+            <Stack.Screen name="Details" component={WorkoutTemplateViewDetails} options={{
+                title: "Exercises",
                 headerTitleAlign: 'center',
                 headerTitleStyle: {
                     fontSize: 20,
@@ -110,12 +123,11 @@ function TrackTab() { // Track page to see all past workouts in a list. Able to 
                 },
                 headerStyle: darkHeader
             }} />
-            <Stack.Screen name="Details" component={WorkoutDetails} options={{
-                title: "Past workouts",
-                headerTitleAlign: 'center',
+            <Stack.Screen name="NewTemplate" component={WorkoutTemplateEditor} options={{
+                title: "New template",
+                headerTitleAlign: 'left',
                 headerTitleStyle: {
                     fontSize: 20,
-                    // color: 'white',
                 },
                 headerStyle: darkHeader
             }} />
@@ -158,7 +170,7 @@ class Navigation extends Component {
                             inactiveBackgroundColor: 'white',
                             activeBackgroundColor: 'white',
                             activeTintColor: 'black',
-                            style: { borderTopWidth: 0, padding: 4, backgroundColor: 'white' },
+                            style: { borderTopWidth: 0.5, padding: 4, backgroundColor: 'white' },
                         }}
                     >
                         <Tab.Screen

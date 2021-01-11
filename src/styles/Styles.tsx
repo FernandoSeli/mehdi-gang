@@ -80,6 +80,11 @@ const styles = StyleSheet.create({
         margin: 8,
         textDecorationLine: 'underline'
     },
+    headerButton: {
+        fontSize: 16,
+        color: themeColor,
+        marginHorizontal: 18,
+    },
     //Text
     bold: {
         fontFamily: 'OpenSans-bold',
@@ -171,7 +176,7 @@ const styles = StyleSheet.create({
         // shadowRadius: 2,
         backgroundColor: lightBackground,
         marginHorizontal: 10,
-        marginVertical: 8,
+        marginVertical: 4,
         paddingHorizontal: 16,
         paddingVertical: 14,
     }

@@ -1,16 +1,31 @@
 import React, { Component, useState } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import styles from '../styles/Styles'
 import exerciseListJson from '../database/ExerciseList'
 import ExerciseCard from '../components/ExerciseCard'
-import WorkoutCard from '../components/WorkoutCard'
+import WorkoutCard from '../components/WorkoutTemplateCard'
 
 export interface Props {
 
 }
 
 //At the moment, this screen extracts data from the WorkoutTemplate list. Change it later to WorkoutRecord list.
-export default function WorkoutList({ navigation }) {
+export default function WorkoutTemplateList({ navigation }) {
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <TouchableOpacity onPress={() => newWorkoutTemplate()}>
+                    <Text style={styles.headerButton}>
+                        New
+                    </Text>
+                </TouchableOpacity>
+            ),
+        });
+    }, [navigation]);
+
+    const newWorkoutTemplate = () => {
+        navigation.navigate("NewTemplate")
+    }
 
     const list = exerciseListJson
     // <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
@@ -31,7 +46,7 @@ export default function WorkoutList({ navigation }) {
     if (!list) {
         return (
             <View style={styles.darkContainer}>
-                <Text style={styles.white}>No available workout record.</Text>
+                <Text style={styles.white}>No available workout templates.</Text>
             </View>
         )
     }

@@ -135,7 +135,7 @@ function Workout({ route, navigation }) {
     //     });
     // }, [navigation])
     const data = route.params.item
-    return (<WorkoutScreen nav={navigation} data={data} />)
+    return (<WorkoutScreen nav={navigation} data={data}/>)
 };
 
 export default Workout;
