@@ -2,12 +2,14 @@ import { StyleSheet, Platform } from 'react-native';
 import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-appearance';
 
 export const themeColor = '#5caff2'
+export const buttonColor = '#359cf0'
 const themeColorLight = '#a3d6ff'
 const themeContrastSuperLight = '#fafff2'
-export const darkBackground = '#FFFFFF'//'#262626'
+export const white = '#FFFFFF'//'#262626'
 export const gray = '#454545'
 export const lightBackground = '#EFEFEF' //'#111114'
 export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
+export const borderColor = '#eeeeee'
 
 const styles = StyleSheet.create({
     //Base
@@ -26,21 +28,20 @@ const styles = StyleSheet.create({
     //Containers
     container: {
         flex: 1,
-        backgroundColor: darkBackground,
-        alignItems: 'center',
+        // alignItems: 'center',
         justifyContent: 'center',
     },
     formContainer: {
         justifyContent: 'flex-start',
-        // backgroundColor: 'black',
         flex: 1,
-        alignItems: 'center',
+        paddingTop: 24,
+        // alignItems: 'center',
     },
-    darkContainer: {
+    whiteContainer: {
         backgroundColor: 'white',//'black',
         flex: 1,
         // alignItems: 'center',
-        justifyContent: 'center',
+        // justifyContent: 'center',
     },
     defaultLight: {
         backgroundColor: 'black',
@@ -88,50 +89,70 @@ const styles = StyleSheet.create({
     //Text
     bold: {
         fontFamily: 'OpenSans-bold',
-        letterSpacing: -.5,
+        letterSpacing: -0.3
+        ,
         // color: 'white'
     },
     text: {
-        fontSize: 14,
-        letterSpacing: -.5,
-        // color: 'white'
+        fontSize: 15,
+        letterSpacing: -0.3
+    },
+    textButton: {
+        fontSize: 15,
+        letterSpacing: -0.3,
+        color: buttonColor
     },
     textBold: {
-        fontSize: 14,
-        letterSpacing: -.5,
+        fontSize: 15,
+        letterSpacing: -0.3
+        ,
         fontFamily: 'OpenSans-bold',
         // color: 'white'
     },
     h1: {
         fontSize: 18,
-        letterSpacing: -.5,
+        letterSpacing: -0.3
+        ,
         fontFamily: 'OpenSans-bold',
         // color: 'white'
     },
     title: {
         fontSize: 18,
-        letterSpacing: -.5,
+        letterSpacing: -0.3
+        ,
         fontFamily: 'OpenSans-bold',
         // color: 'white',
         marginVertical: 6,
     },
     title2: {
         fontSize: 15,
-        letterSpacing: -.5,
+        letterSpacing: -0.3
+        ,
         // color: 'white',
         marginVertical: 6,
     },
     light: {
         fontSize: 14,
-        letterSpacing: -.5,
-        color: '#b3b3b3',
+        letterSpacing: -0.3,
+        color: 'gray',
+    },
+    lightRegular: {
+        fontSize: 14,
+        letterSpacing: -0.3,
+        color: '#222222'
     },
     debug: {
         fontSize: 12,
-        letterSpacing: -.5,
+        letterSpacing: -0.3
+        ,
         color: 'red'
     },
     //Inputs and Form Components
+    textInput: {
+        borderWidth: 1,
+        height: 40,
+        borderColor: 'gray'
+    },
     formRow: {
         flexDirection: 'row',
         marginHorizontal: 8,
@@ -140,7 +161,7 @@ const styles = StyleSheet.create({
     inputLabel: {
         paddingHorizontal: 6,
         paddingVertical: 10,
-        fontSize: 14,
+        fontSize: 15,
         // fontFamily: 'OpenSans-bold',
         // color: 'white',
         // textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
@@ -149,7 +170,7 @@ const styles = StyleSheet.create({
     },
     inputBox: {
         padding: 6,
-        fontSize: 14,
+        fontSize: 15,
         flex: 4,
         borderWidth: 1,
         borderColor: 'transparent',

@@ -7,7 +7,7 @@ export interface Props {
 
 export default function Profile(props: Props) {
     return (
-        <View style={styles.darkContainer}>
+        <View style={styles.whiteContainer}>
             {/* <Text style={styles.white}>Profile Page</Text> */}
             <TouchableOpacity>
                 <Text style={styles.linkedText}>

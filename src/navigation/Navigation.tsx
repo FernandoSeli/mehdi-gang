@@ -14,7 +14,7 @@ import WorkoutTemplateViewDetails from '../screens/WorkoutTemplateViewDetails';
 import WorkoutTemplateList from '../screens/WorkoutTemplateListScreen';
 import WorkoutTemplateDetails from '../screens/WorkoutTemplateScreen';
 import Profile from '../screens/ProfileScreen';
-import { themeColor, darkBackground } from '../styles/Styles'
+import { themeColor, white } from '../styles/Styles'
 //Visual Imports
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
@@ -125,9 +125,9 @@ function TrackTab() { // Track page to see all past workouts in a list. Able to 
             }} />
             <Stack.Screen name="NewTemplate" component={WorkoutTemplateEditor} options={{
                 title: "New template",
-                headerTitleAlign: 'left',
+                headerTitleAlign: 'center',
                 headerTitleStyle: {
-                    fontSize: 20,
+                    fontSize: 18,
                 },
                 headerStyle: darkHeader
             }} />

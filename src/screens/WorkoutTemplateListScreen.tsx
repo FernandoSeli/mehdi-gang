@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import styles from '../styles/Styles'
 import exerciseListJson from '../database/ExerciseList'
 import ExerciseCard from '../components/ExerciseCard'
-import WorkoutCard from '../components/WorkoutTemplateCard'
+import WorkoutTemplateCard from '../components/WorkoutTemplateCard'
 
 export interface Props {
 
@@ -39,20 +39,20 @@ export default function WorkoutTemplateList({ navigation }) {
     const renderItem = ({ item }) => {
         return (
             // <ExerciseCard day={item.day} name={item.name} onPress={() => goToWorkout(item)} key={item.key} />
-            <WorkoutCard item={item} key={item.key} onPress={() => goToWorkout(item)} />
+            <WorkoutTemplateCard item={item} key={item.key} onPress={() => goToWorkout(item)} />
         );
     }
 
     if (!list) {
         return (
-            <View style={styles.darkContainer}>
+            <View style={styles.whiteContainer}>
                 <Text style={styles.white}>No available workout templates.</Text>
             </View>
         )
     }
     else {
         return (
-            <View style={styles.darkContainer}>
+            <View style={styles.whiteContainer}>
                 <ScrollView>
                     {
                         list.map(item => renderItem({ item }))

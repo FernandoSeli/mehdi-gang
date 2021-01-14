@@ -1,4 +1,26 @@
-[Last updated: 1/10/21]
+[Last updated: 1/11/21]
+
+DRAWBOARD.TXT IS OBSOLETE. PROJECT MANAGEMENT IS NOW AVAILABLE ON CLICKUP.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ======================== To-Do ========================
 :Ongoing
 - WorkoutTemplateScreen.tsx

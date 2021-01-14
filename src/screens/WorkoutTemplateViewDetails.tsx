@@ -60,7 +60,7 @@ function WorkoutTemplateViewDetails({ navigation, route }) {
     }
 
     return (
-        <View style={[styles.darkContainer, { justifyContent: 'flex-start', paddingTop: 14 }]}>
+        <View style={[styles.whiteContainer, { justifyContent: 'flex-start', paddingTop: 14 }]}>
             <ScrollView>
                 {
                     list.map(item => exerciseRow({ item }))

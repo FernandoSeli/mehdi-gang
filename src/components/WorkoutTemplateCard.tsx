@@ -7,7 +7,7 @@ export interface Props {
     onPress: any,
 }
 
-export default function WorkoutCard(props: Props) {
+export default function WorkoutTemplateCard(props: Props) {
 
     const { item, onPress } = props
     const routineName = 'PPL' //Temporary hardcode
@@ -31,10 +31,10 @@ const localStyle = StyleSheet.create({
     date: {
         textAlign: 'center',
         marginLeft: 'auto',
-        fontSize: 12,
+        fontSize: 14,
     },
     title: {
-        fontSize: 15,
+        fontSize: 16,
         color: 'black', //'white'
         letterSpacing: -1,
     }

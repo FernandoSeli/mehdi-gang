@@ -1,7 +1,7 @@
 import { useLinkProps } from '@react-navigation/native';
 import React, { Component } from 'react';
 import { View, Text, Platform, TouchableOpacity, FlatList, KeyboardAvoidingView } from 'react-native';
-import styles, { darkBackground, keyboardVerticalOffset } from '../styles/Styles';
+import styles, { white, keyboardVerticalOffset } from '../styles/Styles';
 //Component Imports
 import WorkoutForm from '../components/WorkoutForm';
 import { clockRunning } from 'react-native-reanimated';
@@ -91,7 +91,7 @@ class WorkoutScreen extends Component<Props> {
     render() {
 
         return (
-            <KeyboardAvoidingView style={{ flex: 1, backgroundColor: darkBackground }} behavior={Platform.OS == "ios" ? "padding" : "height"} keyboardVerticalOffset={110}>
+            <KeyboardAvoidingView style={{ flex: 1, backgroundColor: white }} behavior={Platform.OS == "ios" ? "padding" : "height"} keyboardVerticalOffset={110}>
                 <View style={[styles.formContainer, { paddingTop: 0 }]}>
                     {/* <Text style={[styles.h1, { padding: 14 }]}>Enter your workout details.</Text> */}
 
