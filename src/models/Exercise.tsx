@@ -1,5 +1,8 @@
-import { Column, Entity, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm/browser";
-import { WorkoutExercise } from "./WorkoutExercise";
+import { OneToMany } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm/browser";
+import { ExerciseCategory } from "./ExerciseCategory";
+import { WorkoutLogExercise } from "./WorkoutLogExercise";
+import { WorkoutTemplateExercise } from "./WorkoutTemplateExercise";
 
 @Entity('exercise')
 export class Exercise {
@@ -16,6 +19,12 @@ export class Exercise {
     @Column()
     oneRepMax: number;
     
-    @ManyToOne(type => WorkoutExercise, WorkoutExercise => WorkoutExercise.exercise)
-    workoutExercises: WorkoutExercise[];
+    @OneToMany(() => WorkoutTemplateExercise, workoutTemplateExercise => workoutTemplateExercise.exercise)
+    workoutTemplateExercises: WorkoutTemplateExercise[];
+
+    @OneToMany(() => WorkoutLogExercise, workoutLogExercise => workoutLogExercise.exercise)
+    workoutLogExercises: WorkoutLogExercise[];
+
+    @ManyToOne(() => ExerciseCategory, exerciseCategory => exerciseCategory.exercises)
+    exerciseCategory: ExerciseCategory;
 }

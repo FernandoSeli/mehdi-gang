@@ -1,6 +1,9 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
 import { OneToMany } from "typeorm/browser";
-import { Workout } from "./Workout";
+import { Routine } from "./Routine";
+import { WorkoutLog } from "./WorkoutLog";
+import { WorkoutTemplateExercise } from "./WorkoutTemplateExercise";
+import { WorkoutTemplateMultiExercise } from "./WorkoutTemplateMultiExercise";
  
 @Entity()
 export class WorkoutTemplate {
@@ -11,6 +14,19 @@ export class WorkoutTemplate {
     @Column()
     name: string;
 
-    @OneToMany(type => Workout, workout => workout.workoutTemplate)
-    workouts: Workout[];
+    @Column()
+    order: number;
+
+    @OneToMany(() => WorkoutTemplateExercise, workoutTemplateExercise => workoutTemplateExercise.workoutTemplate)
+    workoutTemplateExercises: WorkoutTemplateExercise[];
+
+    @OneToMany(() => WorkoutTemplateMultiExercise, workoutTemplateMultiExercise => workoutTemplateMultiExercise.workoutTemplate)
+    workoutTemplateMultiExercises: WorkoutTemplateMultiExercise[];
+
+    @OneToMany(() => WorkoutLog, workoutLog => workoutLog.workoutTemplate)
+    workoutLogs: WorkoutLog[];
+
+    @ManyToOne(() => Routine, routine => routine.workoutTemplates)
+    routine: Routine;
+
 }

@@ -52,6 +52,6 @@
     "typescript": "~3.9.2"
   },
   "private": true,
-  "name": "mehdi-gang",
+  "name": "adept-workout-tracker",
   "version": "1.0.0"
 }
