@@ -16,50 +16,6 @@ type Props = {
     nav: any,
 }
 
-// class HomeScreen extends Component<Props> { //DEPRECATED
-
-//     state = {
-//         today: null,
-//     }
-
-//     componentDidMount() {
-//         var date = new Date();
-//         var day = date.getDay()
-//         this.setState({
-//             // today: day,
-//             today: 4,
-//         })
-//     }
-
-//     renderItem = ({ item }) => {
-//         let isToday: boolean
-//         if (item.day === this.state.today) { isToday = true } else { isToday = false }
-//         return (
-//             <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => this.goToWorkout(item)} />
-//         );
-//     }
-
-//     goToWorkout = (exercise: any) => {
-//         this.props.nav.navigate("Workout", { name: exercise.name });
-//     }
-
-//     render() {
-//         return (
-//             // <SafeAreaView style={{flex: 1,}}>
-//             <View style={styles.defaultLight}>
-//                 {/* <NewWorkoutBtn title="Create a new workout day" nav={this.props.nav} /> */}
-//                 <FlatList
-//                     data={exerciseListJson}
-//                     renderItem={this.renderItem}
-//                     keyExtractor={item => { return item.key.toString() }}
-//                     extraData={exerciseListJson}
-//                 />
-//             </View>
-//             // </SafeAreaView>
-//         );
-//     }
-// }
-
 function Home({ navigation }) {
 
     var date = new Date();
@@ -76,25 +32,34 @@ function Home({ navigation }) {
         let isToday: boolean
         if (item.day === today) { isToday = true } else { isToday = false }
         return (
-            <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key}/>
+            <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
         );
     };
 
     const goToWorkout = (item: any) => {
-        navigation.navigate("Workout", { name: item.name, item: item.exercises}); //Ask Nando if you should prop the whole data.
+        let name:string, exercises:any;
+        if(item){
+            name = item.name
+            exercises = item.exercises
+        }
+        else{
+            name = '',
+            exercises= null
+        }
+        navigation.navigate("Workout", { name: name, item: exercises }); //Ask Nando if you should prop the whole data.
     }
 
 
     return (
-        <ScrollView style={{ flex: 1, backgroundColor: 'black' }}>
+        <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
 
-            <StatusBar barStyle='light-content' />
+            <StatusBar barStyle='dark-content' backgroundColor='white' />
 
-            <TodaysWorkout item={todaysWorkout} onPressLink={goToWorkout}/>
+            <TodaysWorkout item={todaysWorkout} onPressLink={goToWorkout} />
             {/* props should later be the whole exercise */}
 
-            <Text style={[styles.h1, { color: 'white', fontSize: 20, marginHorizontal: 16, marginBottom: 8 }]}>
-               Choose from <Text style={{color: themeColor}}>PPL</Text>:
+            <Text style={[styles.h1, { color: 'black', fontSize: 20, marginHorizontal: 16, marginBottom: 8 }]}>
+                New session from <Text style={{ color: themeColor }}>PPL</Text>:
             </Text>
 
             <View>
@@ -102,6 +67,16 @@ function Home({ navigation }) {
                     exerciseList.map((item) => renderItem({ item }))
                 }
             </View>
+
+            <TouchableOpacity onPress={() => goToWorkout(null)}>
+                <Text style={[styles.linkedText, {
+                    marginHorizontal: 16,
+                    marginVertical: 8,
+                    // textAlign: 'left'
+                }]}>
+                    New workout template
+                </Text>
+            </TouchableOpacity>
             {/* <HomeScreen nav={navigation} /> */}
         </ScrollView>
     )

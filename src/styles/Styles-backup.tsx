@@ -1,10 +1,17 @@
 import { StyleSheet, Platform } from 'react-native';
+import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-appearance';
 
-const themeColor = '#841584'
-const themeColorLight = '#881989'
+export const themeColor = '#5caff2'
+const themeColorLight = '#a3d6ff'
+const themeContrastSuperLight = '#fafff2'
+export const darkBackground = '#262626'
+export const gray = '#454545'
+export const lightBackground = '#111114'
+export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
 
 const styles = StyleSheet.create({
     //Base
+
     colored: {
         color: themeColor
     },
@@ -19,14 +26,27 @@ const styles = StyleSheet.create({
     //Containers
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: darkBackground,
         alignItems: 'center',
         justifyContent: 'center',
     },
     formContainer: {
         justifyContent: 'flex-start',
-        backgroundColor: '#F1F1F1',
+        backgroundColor: 'black',
         flex: 1,
+        alignItems: 'center',
+    },
+    darkContainer: {
+        backgroundColor: 'black',
+        flex: 1,
+        // alignItems: 'center',
+        justifyContent: 'center',
+    },
+    defaultLight: {
+        backgroundColor: 'black',
+        justifyContent: 'center',
+        flex: 1,
+        borderColor: 'transparent'
     },
     //Buttons
     button: {
@@ -34,14 +54,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         margin: 6,
-        height: 36,
         borderWidth: 1,
-        borderColor: themeColor,
-        borderRadius: 4
+        borderColor: 'white',
+        borderRadius: 0,
+        backgroundColor: 'transparent',
+        width: 180,
+        height: 40,
     },
     buttonText: {
         color: themeColor,
-        fontSize: 16
+        fontSize: 15,
+        // textDecorationLine: 'underline'
     },
     buttonSolid: {
         alignItems: 'center',
@@ -51,50 +74,98 @@ const styles = StyleSheet.create({
         backgroundColor: themeColor,
         borderRadius: 4
     },
+    linkedText: {
+        textAlign: 'center',
+        color: 'white',
+        margin: 8,
+        textDecorationLine: 'underline'
+    },
     //Text
+    bold: {
+        fontFamily: 'OpenSans-bold',
+        color: 'white'
+    },
     text: {
-        fontSize: 16,
+        fontSize: 14,
+        color: 'white'
     },
     textBold: {
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 14,
+        fontFamily: 'OpenSans-bold',
+        color: 'white'
     },
     h1: {
         fontSize: 18,
-        fontWeight: 'bold',
+        fontFamily: 'OpenSans-bold',
+        color: 'white'
+    },
+    title: {
+        fontSize: 18,
+        fontFamily: 'OpenSans-bold',
+        color: 'white',
+        marginVertical: 6,
+    },
+    title2: {
+        fontSize: 15,
+        color: 'white',
+        marginVertical: 6,
+    },
+    light: {
+        fontSize: 14,
+        color: '#b3b3b3',
+    },
+    debug: {
+        fontSize: 12,
+        color: 'red'
     },
     //Inputs and Form Components
     formRow: {
         flexDirection: 'row',
-        marginHorizontal: 24,
-        marginVertical: 8
+        marginHorizontal: 8,
+        marginVertical: 2
     },
     inputLabel: {
-        marginRight: 12,
-        fontSize: 16,
-        // fontWeight: 'bold',
-        color: themeColor,
-        textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
+        paddingHorizontal: 6,
+        paddingVertical: 10,
+        fontSize: 14,
+        // fontFamily: 'OpenSans-bold',
+        color: 'white',
+        // textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
         flex: 1,
-        justifyContent: 'center',
-        textAlign: 'center',
-        // backgroundColor: 'black', //Testing purposes only.
+        // backgroundColor: 'red', //Testing purposes only.
     },
     inputBox: {
-        padding: 8,
-        fontSize: 16,
-        height: 36,
-        flex: 5,
+        padding: 6,
+        fontSize: 14,
+        flex: 4,
         borderWidth: 1,
-        borderColor: '#d8d8d8'
+        borderColor: 'transparent',
+        // borderBottomColor: gray,
+        color: 'white',
+        // backgroundColor: 'red',
     },
     card: {
-        borderRadius: 6,
-        borderColor: '#d2d2d2',
-        borderWidth: 1,
-        margin: 16,
-        padding: 6,
-        backgroundColor: 'white'
+        // borderColor: '#d2d2d2',
+        borderWidth: 0,
+        marginTop: 14,
+        marginHorizontal: 10,
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        backgroundColor: lightBackground
+    },
+    //UI Elements
+    homeCard: {
+        borderWidth: 0,
+        // elevation: 2,
+        // shadowColor: '#000',
+        // shadowOffset: { width: 0, height: 2 },
+        // shadowOpacity: 0.1,
+        // shadowRadius: 2,
+        backgroundColor: lightBackground,
+        marginHorizontal: 10,
+        marginVertical: 8,
+        paddingHorizontal: 16,
+        paddingVertical: 14,
     }
 });
 

@@ -65,23 +65,23 @@ const exerciseRow = ({ item }) => {
                 backgroundColor: lightBackground,
                 borderRadius: 2,
                 minHeight: 40,
-                margin: 6,
-                minWidth: '90%',
+                marginVertical: 4,
+                marginHorizontal: 12,
                 paddingHorizontal: 16,
-                padding: 12,
+                padding: 6,
             }}>
                 <View style={{
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}>
-                    <Text style={[styles.title2, localStyle.marginHorizontal, styles.bold]}>
+                    <Text style={[styles.title2, localStyle.marginHorizontal]}>
                         {item.name}
                     </Text>
-                    <Text style={[styles.title2, localStyle.marginHorizontal]}>
+                    <Text style={[styles.title2, localStyle.marginHorizontal, localStyle.lightText]}>
                         {item.sets} sets of
                     </Text>
-                    <Text style={[styles.title2, localStyle.marginHorizontal]}>
+                    <Text style={[styles.title2, localStyle.marginHorizontal, localStyle.lightText]}>
                         {item.reps} reps
                     </Text>
                 </View>
@@ -98,6 +98,9 @@ const localStyle = StyleSheet.create({
     },
     bold: {
         fontWeight: 'bold'
+    },
+    lightText: {
+        color: 'gray'
     }
 })
 

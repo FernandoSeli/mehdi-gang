@@ -1,4 +1,4 @@
-const exerciseListJson = [ //This will later be your Routine data from the Database.
+const exerciseListJson = [ //This will later be your Workout TEMPLATE (not data) data from the Database. 
     {
         key: 0, day: 1, name: "Power Push Day",
         exercises: [{

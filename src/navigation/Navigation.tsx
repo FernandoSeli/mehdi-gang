@@ -10,16 +10,23 @@ import Home from '../screens/HomeScreen'
 import Workout from '../screens/WorkoutScreen';
 import Blank from '../screens/TestPage';
 import ExploreScreen from '../screens/ExploreScreen';
-import WorkoutDetails from '../screens/WorkoutDetailsScreen';
-import { themeColor, darkBackground } from '../styles/Styles'
+import WorkoutTemplateViewDetails from '../screens/WorkoutTemplateViewDetails';
+import WorkoutTemplateList from '../screens/WorkoutTemplateListScreen';
+import WorkoutTemplateDetails from '../screens/WorkoutTemplateScreen';
+import Profile from '../screens/ProfileScreen';
+import { themeColor, white } from '../styles/Styles'
 //Visual Imports
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+import WorkoutTemplateEditor from '../screens/WorkoutTemplateScreen';
 //Params type definition
 type StackParams = {
     Home: undefined;
     Workout: { name: string };
+    Details: { key: string, item: any } //Temporary 'item' parameters
+    NewTemplate: {}
     // Feed: { sort: 'latest' | 'top' } | undefined;
+    
 };
 type TabParams = {
 }
@@ -31,7 +38,7 @@ const Tab = createBottomTabNavigator();
 //Constants
 const darkHeader = {
     height: 60,
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
     borderBottomWidth: 0,
     elevation: 0,
     shadowOpacity: 0,
@@ -54,7 +61,7 @@ function HomeTab() {
                     headerTitleStyle: {
                         fontSize: 34,
                         fontWeight: 'bold',
-                        color: 'white',
+                        // color: 'white',
                     },
                     headerStyle: darkHeader
                 }}
@@ -62,17 +69,20 @@ function HomeTab() {
             <Stack.Screen
                 name="Workout"
                 component={Workout}
-                options={({ route, navigation }) =>
-                    ({
-                        title: route.params.name, //Title should adapt based on the name of the workout.
+                options={({ route, navigation }) => {
+                    let name = route.params.name
+                    if (name === '') { name = "New Workout" }
+                    return ({
+                        title: name, //Title should adapt based on the name of the workout.
                         headerTitleStyle: {
-                            color: 'white',
+                            // color: 'white',
                             fontSize: 24,
                         },
                         headerStyle: darkHeader,
-                        headerTintColor: 'white',
+                        // headerTintColor: 'white',
                         headerBackTitleVisible: false,
-                    })}
+                    })
+                }}
             />
         </Stack.Navigator>
     );
@@ -80,21 +90,44 @@ function HomeTab() {
 function ProfileTab() {
     return (
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={Blank} options={{
-                title: 'What are you doing here?',
-            }} />
-        </Stack.Navigator>
-    );
-}
-function ExploreTab() { //Probably better put this function on the specific .tsx file next time?
-    return (
-        <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={WorkoutDetails} options={{
-                title: "Details Screen (dev)",
+            <Stack.Screen name="Home" component={Profile} options={{
+                title: 'Your Name',
                 headerTitleAlign: 'center',
                 headerTitleStyle: {
                     fontSize: 20,
                     color: 'white',
+                },
+                headerStyle: darkHeader
+            }} />
+        </Stack.Navigator>
+    );
+}
+function TrackTab() { // Track page to see all past workouts in a list. Able to filter etc.
+    return (
+        <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" component={WorkoutTemplateList} options={{
+                title: "Workout Templates",
+                headerTitleAlign: 'left',
+                headerTitleStyle: {
+                    fontSize: 20,
+                    // color: 'white',
+                },
+                headerStyle: darkHeader
+            }} />
+            <Stack.Screen name="Details" component={WorkoutTemplateViewDetails} options={{
+                title: "Exercises",
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+                    fontSize: 20,
+                    // color: 'white',
+                },
+                headerStyle: darkHeader
+            }} />
+            <Stack.Screen name="NewTemplate" component={WorkoutTemplateEditor} options={{
+                title: "New template",
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+                    fontSize: 18,
                 },
                 headerStyle: darkHeader
             }} />
@@ -107,7 +140,7 @@ class Navigation extends Component {
     render() {
         return (
             // <SafeAreaProvider>
-            <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                 <NavigationContainer>
                     <Tab.Navigator
                         screenOptions={({ route }) => ({
@@ -120,11 +153,11 @@ class Navigation extends Component {
                                         ? themeColor
                                         : 'gray'
                                 }
-                                else if (route.name === 'Explore') {
+                                else if (route.name === 'Track') {
                                     iconName = 'direction'
                                     color = focused ? themeColor : 'gray'
                                 }
-                                else if (route.name === 'ProfileTab') {
+                                else if (route.name === 'Profile') {
                                     iconName = 'user'
                                     color = focused
                                         ? themeColor
@@ -134,11 +167,10 @@ class Navigation extends Component {
                             },
                         })}
                         tabBarOptions={{
-                            inactiveBackgroundColor: 'black',
-                            activeBackgroundColor: 'black',
-                            activeTintColor: 'white',
-                            style: { borderTopWidth: 0, padding: 4, backgroundColor: 'black' },
-
+                            inactiveBackgroundColor: 'white',
+                            activeBackgroundColor: 'white',
+                            activeTintColor: 'black',
+                            style: { borderTopWidth: 0.5, padding: 4, backgroundColor: 'white' },
                         }}
                     >
                         <Tab.Screen
@@ -146,11 +178,11 @@ class Navigation extends Component {
                             component={HomeTab}
                         />
                         <Tab.Screen
-                            name="Explore"
-                            component={ExploreTab}
+                            name="Track"
+                            component={TrackTab}
                         />
                         <Tab.Screen
-                            name="ProfileTab"
+                            name="Profile"
                             component={ProfileTab}
                         />
                     </Tab.Navigator>
