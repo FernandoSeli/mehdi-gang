@@ -4,7 +4,7 @@ import React, { Component, useState } from 'react';
 //Component Imports
 import TestFirebase from '../components/test/TestFirebase';
 import NewWorkoutBtn from '../components/buttons/NewWorkoutBtn';
-import ExerciseCard from '../components/ExerciseCard';
+import WorkoutCard from '../components/WorkoutCard';
 import TodaysWorkout from '../components/TodaysWorkout'
 //Stlye Imports
 import styles, { themeColor } from '../styles/Styles';
@@ -32,7 +32,7 @@ function Home({ navigation }) {
         let isToday: boolean
         if (item.day === today) { isToday = true } else { isToday = false }
         return (
-            <ExerciseCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
+            <WorkoutCard day={item.day} name={item.name} isSelected={isToday} onPress={() => goToWorkout(item)} key={item.key} />
         );
     };
 

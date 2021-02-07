@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import AddNewExerciseBtn from '../components/buttons/AddNewExerciseBtn';
+import ExerciseField from '../components/ExerciseField';
 import ExerciseSelectModal from '../components/modals/ExerciseSelectMd';
 import { WorkoutTemplate } from '../models/WorkoutTemplate';
 import { WorkoutTemplateExercise } from '../models/WorkoutTemplateExercise';
@@ -21,9 +22,12 @@ export default function WorkoutTemplateEditor(props: WorkoutTemplateProps) {
     toggleModal(true)
   }
 
-
   const closeModal = () => {
     toggleModal(false)
+  }
+
+  const renderExercise = () => {
+    <ExerciseField />
   }
 
   return (
@@ -42,6 +46,12 @@ export default function WorkoutTemplateEditor(props: WorkoutTemplateProps) {
       />
       <View style={localStyles.subContainer}>
         <AddNewExerciseBtn onPress={onPress} />
+        {/* <FlatList
+          data={exerciseList}
+          renderItem={renderExercise}
+          keyExtractor={item => item.id}
+        /> */}
+        <ExerciseField />
       </View>
     </View>
   );

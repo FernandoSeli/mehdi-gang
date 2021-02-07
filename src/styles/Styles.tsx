@@ -116,6 +116,13 @@ const styles = StyleSheet.create({
         fontFamily: 'OpenSans-bold',
         // color: 'white'
     },
+    h2: {
+        fontSize: 17,
+        letterSpacing: -0.3
+        ,
+        fontFamily: 'OpenSans',
+        // color: 'white'
+    },
     title: {
         fontSize: 18,
         letterSpacing: -0.3

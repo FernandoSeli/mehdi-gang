@@ -7,7 +7,7 @@ import styles from '../styles/Styles';
 //   day: number,
 // ]
 
-const ExerciseCard = (props: any) => {
+const WorkoutCard = (props: any) => {
   //Props
   let name = props.name
   let day = props.day
@@ -38,4 +38,4 @@ const ExerciseCard = (props: any) => {
   );
 };
 
-export default ExerciseCard; //Rename this to SessionCard later.
+export default WorkoutCard; //Rename this to SessionCard later.

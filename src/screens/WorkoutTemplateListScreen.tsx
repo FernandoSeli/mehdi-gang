@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import styles from '../styles/Styles'
 import exerciseListJson from '../database/ExerciseList'
-import ExerciseCard from '../components/ExerciseCard'
+import WorkoutCard from '../components/WorkoutCard'
 import WorkoutTemplateCard from '../components/WorkoutTemplateCard'
 
 export interface Props {
