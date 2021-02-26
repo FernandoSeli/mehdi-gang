@@ -14,6 +14,7 @@ import Navigation from './src/navigation/Navigation';
 import * as firebase from 'firebase';
 import FirebaseInitialize from './src/database/FirebaseInitialize';
 import { render } from 'react-dom';
+import Database from './src/database/database';
 //Database Initialization
 if (!firebase.apps.length) {
   firebase.initializeApp(FirebaseInitialize);
@@ -33,10 +34,12 @@ export default function App() {
     }
   })
 
+  // Database.connect().then();
+
   if (!fontsLoaded) {
     return (
       <View style={{ backgroundColor: 'red', flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-        <AppLoading/>
+        <AppLoading />
         <ActivityIndicator size="large" color="#ffffff" />
       </View>
     )

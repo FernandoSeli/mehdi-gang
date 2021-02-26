@@ -7,8 +7,20 @@ import {
 } from 'react-native';
 
 import { createConnection, getRepository } from 'typeorm/browser';
-import { Workout } from '../models/Workout';
+
+import { Exercise } from '../models/Exercise';
+import { ExerciseCategory } from '../models/ExerciseCategory';
+import { Routine } from '../models/Routine';
+import { WorkoutLog } from '../models/WorkoutLog';
+import { WorkoutLogExercise } from '../models/WorkoutLogExercise';
+import { WorkoutLogExerciseDropSet } from '../models/WorkoutLogExerciseDropSet';
+import { WorkoutLogExerciseSet } from '../models/WorkoutLogExerciseSet';
+import { WorkoutLogMultiExercise } from '../models/WorkoutLogMultiExercise';
 import { WorkoutTemplate } from '../models/WorkoutTemplate';
+import { WorkoutTemplateExercise } from '../models/WorkoutTemplateExercise';
+import { WorkoutTemplateExerciseDropSet } from '../models/WorkoutTemplateExerciseDropSet';
+import { WorkoutTemplateExerciseSet } from '../models/WorkoutTemplateExerciseSet';
+import { WorkoutTemplateMultiExercise } from '../models/WorkoutTemplateMultiExercise';
 
 
 interface IDatabaseProps {
@@ -16,15 +28,26 @@ interface IDatabaseProps {
 }
 
 export default class Database extends Component<IDatabaseProps> {
-  
+
 
   static connect() {
     return createConnection({
       database: "test",
       driver: require('expo-sqlite'),
       entities: [
-          Workout,
-          WorkoutTemplate,
+        Exercise,
+        ExerciseCategory,
+        Routine,
+        WorkoutLog,
+        WorkoutLogExercise,
+        WorkoutLogExerciseDropSet,
+        WorkoutLogExerciseSet,
+        WorkoutLogMultiExercise,
+        WorkoutTemplate,
+        WorkoutTemplateExercise,
+        WorkoutTemplateExerciseDropSet,
+        WorkoutTemplateExerciseSet,
+        WorkoutTemplateMultiExercise,
       ],
       synchronize: true,
       type: "expo",
@@ -33,7 +56,7 @@ export default class Database extends Component<IDatabaseProps> {
 
   static async runDemo() {
     await this.connect();
-    
+
     // initialise object variable
     const workout = new Workout();
     workout.name = "bench full";
@@ -52,7 +75,7 @@ export default class Database extends Component<IDatabaseProps> {
     console.log("Post has been saved");
 
     //load
-    const loadedWorkout = await workoutRepository.findOne({where: {id: workout.id}});
+    const loadedWorkout = await workoutRepository.findOne({ where: { id: workout.id } });
     const loadedWorkoutTemplate = await workoutTemplateRepository.findOne(workoutTemplate.id);
 
     if (loadedWorkout) {

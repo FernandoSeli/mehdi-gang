@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: themeColor,
-        fontSize: 15,
+        fontSize: 14,
         // textDecorationLine: 'underline'
     },
     buttonSolid: {
@@ -94,16 +94,16 @@ const styles = StyleSheet.create({
         // color: 'white'
     },
     text: {
-        fontSize: 15,
+        fontSize: 14,
         letterSpacing: -0.3
     },
     textButton: {
-        fontSize: 15,
+        fontSize: 14,
         letterSpacing: -0.3,
         color: buttonColor
     },
     textBold: {
-        fontSize: 15,
+        fontSize: 14,
         letterSpacing: -0.3
         ,
         fontFamily: 'OpenSans-bold',
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         // color: 'white'
     },
     h2: {
-        fontSize: 17,
+        fontSize: 16,
         letterSpacing: -0.3
         ,
         fontFamily: 'OpenSans',
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
         marginVertical: 6,
     },
     title2: {
-        fontSize: 15,
+        fontSize: 14,
         letterSpacing: -0.3
         ,
         // color: 'white',
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     lightRegular: {
         fontSize: 14,
         letterSpacing: -0.3,
-        color: '#222222'
+        color: 'gray'
     },
     debug: {
         fontSize: 12,
@@ -160,6 +160,15 @@ const styles = StyleSheet.create({
         height: 40,
         borderColor: 'gray'
     },
+    grayTextInput: {
+        borderWidth: 1,
+        height: 42,
+        borderColor: borderColor,
+        borderLeftWidth: 0,
+        borderRightWidth: 0,
+        paddingLeft: 18,
+        backgroundColor: lightBackground
+    },
     formRow: {
         flexDirection: 'row',
         marginHorizontal: 8,
@@ -168,7 +177,7 @@ const styles = StyleSheet.create({
     inputLabel: {
         paddingHorizontal: 6,
         paddingVertical: 10,
-        fontSize: 15,
+        fontSize: 14,
         // fontFamily: 'OpenSans-bold',
         // color: 'white',
         // textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
@@ -177,7 +186,7 @@ const styles = StyleSheet.create({
     },
     inputBox: {
         padding: 6,
-        fontSize: 15,
+        fontSize: 14,
         flex: 4,
         borderWidth: 1,
         borderColor: 'transparent',

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import AddNewExerciseBtn from '../components/buttons/AddNewExerciseBtn';
 import ExerciseField from '../components/ExerciseField';
 import ExerciseSelectModal from '../components/modals/ExerciseSelectMd';
@@ -31,14 +31,13 @@ export default function WorkoutTemplateEditor(props: WorkoutTemplateProps) {
   }
 
   return (
-    <View style={[styles.whiteContainer, { paddingTop: 12, }]}>
+    <ScrollView style={[styles.whiteContainer, { paddingTop: 12, }]}>
       <ExerciseSelectModal visible={modalVisible} closeModal={closeModal} />
-
-      <Text style={[styles.light, localStyles.subContainer, { marginBottom: 14 }]}>
+      <Text style={[styles.light, localStyles.subContainer, { marginBottom: 8 }]}>
         {infoText}
       </Text>
       <TextInput
-        style={localStyles.textInput}
+        style={styles.grayTextInput}
         onChangeText={text => onChangeValue(text)}
         value={value}
         placeholder="Template name"
@@ -51,29 +50,31 @@ export default function WorkoutTemplateEditor(props: WorkoutTemplateProps) {
           renderItem={renderExercise}
           keyExtractor={item => item.id}
         /> */}
+        {/* Exercise List */}
         <ExerciseField />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const localStyles = StyleSheet.create({
-  textInput: {
-    borderWidth: 1,
-    height: 42,
-    borderColor: borderColor,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    paddingLeft: 18,
-    backgroundColor: lightBackground
-  },
+  // textInput: {
+  //   borderWidth: 1,
+  //   height: 42,
+  //   borderColor: borderColor,
+  //   borderLeftWidth: 0,
+  //   borderRightWidth: 0,
+  //   paddingLeft: 18,
+  //   backgroundColor: lightBackground
+  // },
   label: {
     fontWeight: 'bold',
     marginLeft: 24,
     marginBottom: 8,
   },
   subContainer: {
-    marginHorizontal: 16
+    marginHorizontal: 16,
+    paddingBottom: 8,
   },
   textButtonContainer: {
     margin: 0,

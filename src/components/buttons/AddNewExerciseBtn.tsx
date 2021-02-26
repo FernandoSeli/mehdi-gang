@@ -31,5 +31,6 @@ const localStyles = StyleSheet.create({
     textButtonContainer: {
         margin: 0,
         marginTop: 14,
+        marginBottom: 18
     },
 })
