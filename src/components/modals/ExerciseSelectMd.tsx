@@ -34,15 +34,16 @@ const ExerciseSelectModal = (props: ExerciseSelectModalProps) => {
         //         transparent={true}
         // >
         <Modal
-            style={localStyles.modal}
+            style={styles.modal}
             isVisible={visible}
             animationIn='slideInUp'
             animationOut='slideOutDown'
             backdropOpacity={0.15}
             coverScreen={true}
             onBackdropPress={() => clearModal()}
+            onBackButtonPress={() => clearModal()}
         >
-            <View style={localStyles.modalView}>
+            <View style={styles.modalView}>
                 <TextInput
                     style={styles.grayTextInput}
                     onChangeText={text => changeText(text)}
@@ -72,28 +73,4 @@ const localStyles = StyleSheet.create({
         paddingHorizontal: 18,
         flex: 1,
     },
-    modal: {
-        // borderRadius: 5,
-        marginHorizontal: 34,
-        marginVertical: 124,
-    },
-    modalView: {
-        backgroundColor: "white",
-        flex: 1,
-        borderRadius: 4,
-        overflow: 'hidden',
-    },
-    footer: {
-        height: 40,
-        // flex: 1,
-        alignItems: 'flex-end',
-        // backgroundColor: 'red'
-    },
-    bottomRowWrapper: {
-        // backgroundColor: 'blue',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        flex: 1,
-        // alignSelf: 'flex-end',
-    }
 });

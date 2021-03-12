@@ -27,7 +27,8 @@ const localStyles = StyleSheet.create({
         borderLeftWidth: 0.5,
         flex: 1,
         backgroundColor: 'white',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        height: 40
     },
     text: {
         textAlign: 'center',

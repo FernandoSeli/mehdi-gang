@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Button from '../components/buttons/Button';
+import ExerciseDataModal from '../components/modals/ExerciseDataModal';
 import ExerciseSelectModal from '../components/modals/ExerciseSelectMd';
 import ModalBase from '../components/modals/ModalBase';
 import styles from '../styles/Styles'

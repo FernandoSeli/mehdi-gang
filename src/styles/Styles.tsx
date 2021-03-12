@@ -3,6 +3,7 @@ import { Appearance, AppearanceProvider, useColorScheme } from 'react-native-app
 
 export const themeColor = '#5caff2'
 export const buttonColor = '#359cf0'
+export const offBlack = '#222222'
 const themeColorLight = '#a3d6ff'
 const themeContrastSuperLight = '#fafff2'
 export const white = '#FFFFFF'//'#262626'
@@ -216,6 +217,33 @@ const styles = StyleSheet.create({
         marginVertical: 4,
         paddingHorizontal: 16,
         paddingVertical: 14,
+    },
+    //Modal
+    modal: {
+        // borderRadius: 5,
+        marginHorizontal: 16,
+        marginVertical: 104,
+    },
+    modalView: {
+        backgroundColor: "white",
+        flex: 1,
+        borderRadius: 4,
+        overflow: 'hidden',
+    },
+    footer: {
+        minHeight: 40,
+        maxHeight: 100,
+        justifyContent: 'flex-end'
+        // backgroundColor: 'red',
+        // paddingHorizontal: 12,
+        // paddingVertical: 8,
+    },
+    bottomRowWrapper: {
+        // backgroundColor: 'blue',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        flex: 1,
+        // alignSelf: 'flex-end',
     }
 });
 
