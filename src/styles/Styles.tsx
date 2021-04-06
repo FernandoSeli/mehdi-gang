@@ -9,6 +9,7 @@ const themeContrastSuperLight = '#fafff2'
 export const white = '#FFFFFF'//'#262626'
 export const gray = '#454545'
 export const lightBackground = '#EFEFEF' //'#111114'
+export const light = '#FBFBFB'
 export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
 export const borderColor = '#eeeeee'
 
@@ -89,70 +90,52 @@ const styles = StyleSheet.create({
     },
     //Text
     bold: {
-        fontFamily: 'OpenSans-bold',
-        letterSpacing: -0.3
-        ,
+        fontFamily: 'medium',
         // color: 'white'
     },
     text: {
         fontSize: 14,
-        letterSpacing: -0.3
     },
     textButton: {
         fontSize: 14,
-        letterSpacing: -0.3,
         color: buttonColor
     },
     textBold: {
         fontSize: 14,
-        letterSpacing: -0.3
-        ,
-        fontFamily: 'OpenSans-bold',
+        fontFamily: 'medium',
         // color: 'white'
     },
     h1: {
         fontSize: 18,
-        letterSpacing: -0.3
-        ,
-        fontFamily: 'OpenSans-bold',
+        fontFamily: 'medium',
         // color: 'white'
     },
     h2: {
         fontSize: 16,
-        letterSpacing: -0.3
-        ,
-        fontFamily: 'OpenSans',
+        fontFamily: 'SFP',
         // color: 'white'
     },
     title: {
         fontSize: 18,
-        letterSpacing: -0.3
-        ,
-        fontFamily: 'OpenSans-bold',
+        fontFamily: 'medium',
         // color: 'white',
         marginVertical: 6,
     },
     title2: {
         fontSize: 14,
-        letterSpacing: -0.3
-        ,
         // color: 'white',
         marginVertical: 6,
     },
     light: {
         fontSize: 14,
-        letterSpacing: -0.3,
         color: 'gray',
     },
     lightRegular: {
         fontSize: 14,
-        letterSpacing: -0.3,
         color: 'gray'
     },
     debug: {
         fontSize: 12,
-        letterSpacing: -0.3
-        ,
         color: 'red'
     },
     //Inputs and Form Components
@@ -179,7 +162,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 6,
         paddingVertical: 10,
         fontSize: 14,
-        // fontFamily: 'OpenSans-bold',
+        // fontFamily: 'medium',
         // color: 'white',
         // textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
         flex: 1,

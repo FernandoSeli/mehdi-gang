@@ -82,8 +82,7 @@ const localStyles = StyleSheet.create({
         textAlign: 'center', 
         fontSize: 26,
         paddingHorizontal: 16,
-        fontFamily: 'OpenSans-bold',
-        letterSpacing: -2,
+        fontFamily: 'medium',
     },
     grayText: {
         color: 'gray',

@@ -24,13 +24,17 @@ export default function App() {
 
   let [fontsLoaded] = useFonts({
     'New-York-r': require('./assets/fonts/NewYorkRegular.ttf'),
-    'OpenSans': require('./assets/fonts/OpenSans.ttf'),
-    'OpenSans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+    // 'OpenSans': require('./assets/fonts/OpenSans.ttf'),
+    // 'bold': require('./assets/fonts/bold.ttf'),
+    'SFP': require('./assets/fonts/SF-Pro-Text-Regular.otf'),
+    'bold': require('./assets/fonts/SF-Pro-Text-Bold.otf'),
+    'medium': require('./assets/fonts/SF-Pro-Text-Medium.otf'),
   });
 
   setCustomText({
     style: {
-      fontFamily: 'OpenSans'
+      // fontFamily: 'OpenSans'
+      fontFamily: 'SFP',
     }
   })
 

@@ -85,8 +85,8 @@ export default ExerciseDataModal;
 const localStyles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 12,
-        paddingVertical: 12,
+        paddingHorizontal: 8,
+        paddingVertical: 8,
     },
     subContainer: {
         flex: 1,
@@ -100,7 +100,7 @@ const localStyles = StyleSheet.create({
         // backgroundColor: 'red'
     },
     modal: {
-        marginHorizontal: 14,
+        marginHorizontal: 10,
         marginVertical: 160,
     },
     modalView: {

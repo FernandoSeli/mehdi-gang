@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, TouchableWithoutFeedback, FlatList, Modal } from 'react-native';
-import styles from '../styles/Styles';
+import styles, { lightBackground, light } from '../styles/Styles';
 import ExerciseDataModal from './modals/ExerciseDataModal';
 
 interface ExerciseFieldProps { }
@@ -53,9 +53,9 @@ export default ExerciseField;
 const localStyles = StyleSheet.create({
   container: {
     marginBottom: 24,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    backgroundColor: '#fff',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    backgroundColor: light,
     borderRadius: 6,
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 1 },

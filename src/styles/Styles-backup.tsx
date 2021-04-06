@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     },
     //Text
     bold: {
-        fontFamily: 'OpenSans-bold',
+        fontFamily: 'medium',
         color: 'white'
     },
     text: {
@@ -91,17 +91,17 @@ const styles = StyleSheet.create({
     },
     textBold: {
         fontSize: 14,
-        fontFamily: 'OpenSans-bold',
+        fontFamily: 'medium',
         color: 'white'
     },
     h1: {
         fontSize: 18,
-        fontFamily: 'OpenSans-bold',
+        fontFamily: 'medium',
         color: 'white'
     },
     title: {
         fontSize: 18,
-        fontFamily: 'OpenSans-bold',
+        fontFamily: 'medium',
         color: 'white',
         marginVertical: 6,
     },
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 6,
         paddingVertical: 10,
         fontSize: 14,
-        // fontFamily: 'OpenSans-bold',
+        // fontFamily: 'medium',
         color: 'white',
         // textAlignVertical: 'center', lineHeight: Platform.OS === 'ios' ? 40 : 20,
         flex: 1,

@@ -36,6 +36,5 @@ const localStyle = StyleSheet.create({
     title: {
         fontSize: 16,
         color: 'black', //'white'
-        letterSpacing: -1,
     }
 })
