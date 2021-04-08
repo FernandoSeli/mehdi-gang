@@ -15,6 +15,7 @@ export interface WorkoutTemplateProps {
 export default function WorkoutTemplateEditor(props: WorkoutTemplateProps) {
 
   const { navigation } = props;
+  
   const handleSave = () => {
     alert("Data saved!")
     navigation.goBack();

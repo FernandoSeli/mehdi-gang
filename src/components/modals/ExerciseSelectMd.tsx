@@ -53,6 +53,7 @@ const ExerciseSelectModal = (props: ExerciseSelectModalProps) => {
                 />
                 <View style={localStyles.container}>
                     {/* Exercise List */}
+                    <Text>Exercise list here (WiP)</Text>
                 </View>
                 {/* <View style={localStyles.footer}>
                     <View style={localStyles.bottomRowWrapper}>

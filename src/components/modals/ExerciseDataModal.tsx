@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import styles, { light, offBlack, white } from '../../styles/Styles';
 import Modal from 'react-native-modal';
 import Button from '../buttons/Button';
@@ -26,13 +26,19 @@ const ExerciseDataModal = (props: ExerciseDataModalProps) => {
     }
 
     const renderRow = ({ item }) => {
+
+        const onChangeReps = () => {
+
+        }
+
         return (
             <View key={item.order} style={[localStyles.row]}>
                 <View style={[localStyles.rowComponent, localStyles.setColumn]}>
                     <Text style={[localStyles.label]}>{item.order}</Text>
                 </View>
                 <View style={[localStyles.rowComponent, localStyles.repsColumn]}>
-                    <Text style={[localStyles.label]}>{item.reps}</Text>
+                    {/* <Text style={[localStyles.label]}>{item.reps}</Text> */}
+                    <TextInput style={styles.rowInput} defaultValue={String(item.order)} onChangeText={onChangeReps} />
                 </View>
                 <View style={[localStyles.rowComponent, localStyles.restColumn]}>
                     <Text style={[localStyles.label]}>{item.rest}</Text>
@@ -62,8 +68,8 @@ const ExerciseDataModal = (props: ExerciseDataModalProps) => {
             backdropOpacity={0.15}
             onBackButtonPress={closeModal}
             onBackdropPress={closeModal}
-            animationIn='fadeIn'
-            animationOut='fadeOut'
+            animationIn='slideInUp'
+            animationOut='slideOutDown'
         >
             <View style={styles.modalView}>
                 <View style={localStyles.container}>
@@ -75,16 +81,16 @@ const ExerciseDataModal = (props: ExerciseDataModalProps) => {
                         }
                         <View style={localStyles.subContainerFooter}>
                             <TouchableOpacity style={{}}>
-                                <Text style={[styles.textButton, {}]}>+ Add a new set</Text>
+                                <Text style={[styles.textButton, styles.iosBottomMargin]}>+ Add a new set</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                 </View>
-                <View style={styles.footer}>
+                {/* <View style={styles.footer}>
                     <View style={styles.bottomRowWrapper}>
                         <Button title="Close" onPress={closeModal} />
                     </View>
-                </View>
+                </View> */}
             </View>
         </Modal >
     );
@@ -96,7 +102,7 @@ const localStyles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 12,
-        paddingVertical: 8,
+        paddingVertical: 12,
         backgroundColor: light
     },
     subContainer: {
@@ -111,15 +117,16 @@ const localStyles = StyleSheet.create({
         // backgroundColor: 'red'
     },
     modal: {
-        marginHorizontal: 14,
-        marginVertical: 220,
+        marginTop: 280,
+        marginBottom: 0,
+        marginHorizontal: 0,
     },
     modalView: {
 
     },
     row: {
         flexDirection: 'row',
-        marginBottom: 8,
+        marginBottom: 12,
         // flex: 1,
     },
     rowComponent: {
@@ -141,12 +148,12 @@ const localStyles = StyleSheet.create({
         // textAlignVertical: 'center',
     },
     setColumn: {
-        flex: 1,
+        flex: 2,
     },
     repsColumn: {
-        flex: 4,
+        flex: 7,
     },
     restColumn: {
-        flex: 1,
+        flex: 2,
     },
 });

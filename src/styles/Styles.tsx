@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         // flex: 1,
     },
+    iosBottomMargin: {
+        marginBottom: Platform.OS === 'ios' ? 24 : 0,
+    },
     //Containers
     container: {
         flex: 1,
@@ -142,6 +145,11 @@ const styles = StyleSheet.create({
         color: 'red'
     },
     //Inputs and Form Components
+    rowInput: {
+        borderBottomWidth: 1,
+        borderColor: themeColor,
+        width: 100,
+    },
     textInput: {
         borderWidth: 1,
         height: 40,
@@ -230,7 +238,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
         // alignSelf: 'flex-end',
-    }
+    },
+
 });
 
 export default styles;
