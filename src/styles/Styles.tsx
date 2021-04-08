@@ -8,7 +8,7 @@ const themeColorLight = '#a3d6ff'
 const themeContrastSuperLight = '#fafff2'
 export const white = '#FFFFFF'//'#262626'
 export const gray = '#454545'
-export const lightBackground = '#EFEFEF' //'#111114'
+export const lightBackground = '#F9F9F9' //'#111114'
 export const light = '#FBFBFB'
 export const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
 export const borderColor = '#eeeeee'
@@ -90,8 +90,11 @@ const styles = StyleSheet.create({
     },
     //Text
     bold: {
-        fontFamily: 'medium',
+        fontFamily: 'bold',
         // color: 'white'
+    },
+    medium: {
+        fontFamily: 'medium'
     },
     text: {
         fontSize: 14,
@@ -112,7 +115,7 @@ const styles = StyleSheet.create({
     },
     h2: {
         fontSize: 16,
-        fontFamily: 'SFP',
+        fontFamily: 'medium',
         // color: 'white'
     },
     title: {

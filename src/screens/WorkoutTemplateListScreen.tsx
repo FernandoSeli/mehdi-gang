@@ -4,6 +4,7 @@ import styles from '../styles/Styles'
 import exerciseListJson from '../database/ExerciseList'
 import WorkoutCard from '../components/WorkoutCard'
 import WorkoutTemplateCard from '../components/WorkoutTemplateCard'
+import HeaderButton from '../components/custom/HeaderBtn';
 
 export interface Props {
 
@@ -11,14 +12,13 @@ export interface Props {
 
 //At the moment, this screen extracts data from the WorkoutTemplate list. Change it later to WorkoutRecord list.
 export default function WorkoutTemplateList({ navigation }) {
+
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                <TouchableOpacity onPress={() => newWorkoutTemplate()}>
-                    <Text style={styles.headerButton}>
-                        New
-                    </Text>
-                </TouchableOpacity>
+                <HeaderButton onPress={newWorkoutTemplate}>
+                    New
+                </HeaderButton>
             ),
         });
     }, [navigation]);

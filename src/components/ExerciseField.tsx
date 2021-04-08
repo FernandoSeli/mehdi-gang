@@ -23,9 +23,9 @@ const ExerciseField = (props: ExerciseFieldProps) => {
   const render = ({ item }) => {
     return (
       <View style={[styles.row, { justifyContent: 'flex-start', paddingHorizontal: 24 }]} key={item.order}>
-        <Text style={[styles.text, { flex: 3, marginBottom: 3 }]}>{item.order + 1}</Text>
-        <Text style={[styles.text, { flex: 3, textAlign: 'center', marginBottom: 3 }]}>{item.reps}</Text>
-        <Text style={[styles.text, { flex: 3, textAlign: 'right' }]}>{item.rest}s</Text>
+        <Text style={[styles.text, { flex: 3, marginBottom: 2 }]}>{item.order + 1}</Text>
+        <Text style={[styles.text, { flex: 3, textAlign: 'center', marginBottom: 2 }]}>{item.reps}</Text>
+        <Text style={[styles.text, { flex: 3, textAlign: 'right', marginBottom: 2, }]}>{item.rest}s</Text>
       </View>
     );
   }
@@ -53,25 +53,26 @@ export default ExerciseField;
 const localStyles = StyleSheet.create({
   container: {
     marginBottom: 24,
-    paddingVertical: 8,
+    paddingVertical: 6,
     paddingHorizontal: 12,
-    backgroundColor: light,
-    borderRadius: 6,
+    backgroundColor: lightBackground,
+    borderRadius: 4,
+
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.15,
-    shadowRadius: 3,
-    elevation: 2,
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 1,
   },
   title: {
-    marginBottom: 10,
+    marginBottom: 4,
   },
   column: {
     flexDirection: 'column',
   },
   label: {
     flex: 1,
-    marginBottom: 4,
+    marginBottom: 2,
     textAlign: 'center'
   }
 

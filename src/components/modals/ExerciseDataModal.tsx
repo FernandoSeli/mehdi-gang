@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import styles, { offBlack, white } from '../../styles/Styles';
+import styles, { light, offBlack, white } from '../../styles/Styles';
 import Modal from 'react-native-modal';
 import Button from '../buttons/Button';
 
@@ -27,24 +27,33 @@ const ExerciseDataModal = (props: ExerciseDataModalProps) => {
 
     const renderRow = ({ item }) => {
         return (
-            <View key={item.order} style={localStyles.row}>
+            <View key={item.order} style={[localStyles.row]}>
                 <View style={[localStyles.rowComponent, localStyles.setColumn]}>
-                    <Text style={[localStyles.label, styles.bold]}>Set</Text>
-                    <Text style={localStyles.text}>{item.order}</ Text>
+                    <Text style={[localStyles.label]}>{item.order}</Text>
                 </View>
                 <View style={[localStyles.rowComponent, localStyles.repsColumn]}>
-                    <Text style={[localStyles.label, styles.bold]}>Reps</Text>
-                    <Text style={localStyles.text}>{item.reps}</ Text>
-                    <Text> + - </Text>
+                    <Text style={[localStyles.label]}>{item.reps}</Text>
                 </View>
                 <View style={[localStyles.rowComponent, localStyles.restColumn]}>
-                    <Text style={[localStyles.label, styles.bold]}>Rest</Text>
-                    <Text style={localStyles.text}>{item.rest}</ Text>
-                    <Text> + - </Text>
+                    <Text style={[localStyles.label]}>{item.rest}</Text>
                 </View>
             </View>
         );
     }
+
+    const tableHeader = (
+        <View style={localStyles.row}>
+            <View style={[localStyles.rowComponent, localStyles.setColumn]}>
+                <Text style={[localStyles.label, { color: 'gray' }]}>#</Text>
+            </View>
+            <View style={[localStyles.rowComponent, localStyles.repsColumn]}>
+                <Text style={[localStyles.label, { color: 'gray' }]}>Reps</Text>
+            </View>
+            <View style={[localStyles.rowComponent, localStyles.restColumn]}>
+                <Text style={[localStyles.label, { color: 'gray' }]}>Rest</Text>
+            </View>
+        </View>
+    )
 
     return (
         <Modal
@@ -60,11 +69,12 @@ const ExerciseDataModal = (props: ExerciseDataModalProps) => {
                 <View style={localStyles.container}>
                     <Text style={[styles.h2, { textAlign: 'center' }]}>{data.name}</Text>
                     <View style={localStyles.subContainer}>
+                        {tableHeader}
                         {
                             data.sets.map((item) => renderRow({ item }))
                         }
                         <View style={localStyles.subContainerFooter}>
-                            <TouchableOpacity style={{backgroundColor: 'red'}}>
+                            <TouchableOpacity style={{}}>
                                 <Text style={[styles.textButton, {}]}>+ Add a new set</Text>
                             </TouchableOpacity>
                         </View>
@@ -85,13 +95,14 @@ export default ExerciseDataModal;
 const localStyles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 8,
+        paddingHorizontal: 12,
         paddingVertical: 8,
+        backgroundColor: light
     },
     subContainer: {
         flex: 1,
-        paddingHorizontal: 8,
-        paddingTop: 12,
+        paddingHorizontal: 12,
+        paddingTop: 16,
         // backgroundColor: 'yellow'
     },
     subContainerFooter: {
@@ -100,30 +111,28 @@ const localStyles = StyleSheet.create({
         // backgroundColor: 'red'
     },
     modal: {
-        marginHorizontal: 10,
-        marginVertical: 160,
+        marginHorizontal: 14,
+        marginVertical: 220,
     },
     modalView: {
 
     },
     row: {
         flexDirection: 'row',
-        marginBottom: 14,
+        marginBottom: 8,
         // flex: 1,
     },
     rowComponent: {
         flexDirection: 'row',
         flex: 1,
-
-        borderColor: 'red',
-        borderWidth: 1,
+        // borderWidth: 1,
         // backgroundColor: 'yellow'
     },
     label: {
         // backgroundColor: 'green',
-        textAlignVertical: 'center',
+        // textAlignVertical: 'center',
         color: offBlack,
-        marginRight: 6,
+        marginRight: 3,
         fontSize: 15,
     },
     text: {
@@ -132,13 +141,12 @@ const localStyles = StyleSheet.create({
         // textAlignVertical: 'center',
     },
     setColumn: {
-        flex: 2,
-        paddingRight: 14,
+        flex: 1,
     },
     repsColumn: {
-        flex: 6,
+        flex: 4,
     },
     restColumn: {
-        flex: 6,
+        flex: 1,
     },
 });

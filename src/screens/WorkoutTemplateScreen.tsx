@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import AddNewExerciseBtn from '../components/buttons/AddNewExerciseBtn';
+import HeaderButton from '../components/custom/HeaderBtn';
 import ExerciseField from '../components/ExerciseField';
 import ExerciseSelectModal from '../components/modals/ExerciseSelectMd';
 import { WorkoutTemplate } from '../models/WorkoutTemplate';
@@ -8,9 +9,26 @@ import { WorkoutTemplateExercise } from '../models/WorkoutTemplateExercise';
 import styles, { borderColor, buttonColor, lightBackground } from '../styles/Styles';
 
 export interface WorkoutTemplateProps {
+  navigation: any;
 }
 
 export default function WorkoutTemplateEditor(props: WorkoutTemplateProps) {
+
+  const { navigation } = props;
+  const handleSave = () => {
+    alert("Data saved!")
+    navigation.goBack();
+  }
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <HeaderButton onPress={handleSave}>
+          Save
+        </HeaderButton>
+      ),
+    });
+  }, [navigation]);
 
   const [value, onChangeValue] = React.useState('')
   const [exerciseList, updateList] = React.useState([])
