@@ -6,4 +6,4 @@ Most of the fitness tracking apps on both the iOS and Android platforms less a t
 
 This project is written on TypeScript using React Native, Firebase and TypeORM frameworks. 
 
-<img src = "screenshots/IMG_4537.PNG" width ="240" /><img src = "screenshots/IMG_4538.PNG" width ="240" /><img src = "screenshots/IMG_4539.PNG" width ="240" />
+<img src = "screenshots/IMG_6080.PNG" width ="240" /><img src = "screenshots/IMG_6081.PNG" width ="240" /><img src = "screenshots/IMG_6082.PNG" width ="240" /><img src = "screenshots/IMG_6083.PNG" width ="240" />
