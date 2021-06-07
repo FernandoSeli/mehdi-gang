@@ -62,7 +62,7 @@ const localStyles = StyleSheet.create({
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
-    elevation: 1,
+    // elevation: 1,
   },
   title: {
     marginBottom: 4,
